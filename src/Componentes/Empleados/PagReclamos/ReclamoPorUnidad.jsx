@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function BuscarReclamos() {
+export default function ReclamoPorUnidad() {
     const [code, setCode] = useState(''); 
     const [reclamo, setReclamo] = useState(null); 
     const [error, setError] = useState(null);  
@@ -41,7 +41,7 @@ function BuscarReclamos() {
 
     const buscarReclamo = async (numericCode) => {
         try {
-            const response = await fetch(`http://localhost:8081/api/reclamos/buscarReclamo/${numericCode}`);
+            const response = await fetch(`http://localhost:8081/api/reclamos/reclamosPorUnidad/${numericCode}`);
             const data = await response.json();
 
             if (response.ok) {
@@ -59,7 +59,6 @@ function BuscarReclamos() {
 
     return (
         <div>
-        <label for="">Buscar: </label>
         <input
             type="search"
             value={code}
@@ -93,5 +92,3 @@ function BuscarReclamos() {
     </div>
     );
 }
-
-export default BuscarReclamos;

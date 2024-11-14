@@ -20,7 +20,7 @@ export default function MostrarPersonas(){
                 {
                     personasList.map( (p) => (
                         <div>
-                            <div className="box-conteiner">
+                            <div className="box-conteiner color">
                                 <div className="caja">{p.nombre}</div>
                                 <div className="caja">{p.documento}</div>
                                 <div></div>

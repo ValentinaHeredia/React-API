@@ -20,7 +20,7 @@ export default function MostrarUsuario(){
                 {
                     usuarioList.map( (u) => (
                         <div>
-                            <div className="box-conteiner">
+                            <div className="box-conteiner color">
                                 <div className="caja">{u.persona.documento}</div>
                                 <div className="caja">{u.persona.nombre}</div>
                                 <div></div>
