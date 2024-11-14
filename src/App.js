@@ -15,11 +15,11 @@ function App() {
       <Edificios/>
       <Unidades/>
       <Reclamos/>
-      <Empleado/>
 
+      <Usuario/>
       <Personas/>
       */}
-      <Usuario/>
+      <Empleado/>
     </div>
   );
 }
