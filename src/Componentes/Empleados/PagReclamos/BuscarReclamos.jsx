@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-function BuscarUnidades() {
+function BuscarReclamos() {
     const [code, setCode] = useState(''); 
-    const [unidad, setUnidad] = useState(null); 
+    const [reclamo, setReclamo] = useState(null); 
     const [error, setError] = useState(null);  
 
     const handleChange = async (event) => {
@@ -10,7 +10,7 @@ function BuscarUnidades() {
         setCode(value);
 
         if (value.trim() === '') {
-            setUnidad(null);
+            setReclamo(null);
             setError(null);
             return;
         }
@@ -18,11 +18,11 @@ function BuscarUnidades() {
         const numericCode = parseInt(value, 10);
         if (isNaN(numericCode)) {
             setError('El código debe ser un número válido.');
-            setUnidad(null);
+            setReclamo(null);
             return;
         }
 
-        await buscarUnidades(numericCode);
+        await buscarReclamo(numericCode);
     };
 
     const handleKeyDown = async (event) => {
@@ -31,29 +31,29 @@ function BuscarUnidades() {
 
         if (isNaN(numericCode) || code.trim() === '') {
         setError('El código debe ser un número válido.');
-        setUnidad(null);
+        setReclamo(null);
         return;
         }
 
-        await buscarUnidades(numericCode);
+        await buscarReclamo(numericCode);
         }
     };
 
-    const buscarUnidades = async (numericCode) => {
+    const buscarReclamo = async (numericCode) => {
         try {
-            const response = await fetch(`http://localhost:8081/api/unidades/obtenerUnidadPorCodigo/${numericCode}`);
+            const response = await fetch(`http://localhost:8081/api/reclamos/buscarReclamo/${numericCode}`);
             const data = await response.json();
 
             if (response.ok) {
-                setUnidad(data);
+                setReclamo(data);
                 setError(null);
             } else {
                 setError('No existe este edificio');
-                setUnidad(null);
+                setReclamo(null);
             }
         } catch (error) {
             setError('Error en la búsqueda.');
-            setUnidad(null);
+            setReclamo(null);
         }
     };
 
@@ -69,17 +69,22 @@ function BuscarUnidades() {
 
         {error && <p>{error}</p>}
 
-        {unidad && (
+        {reclamo && (
             <>
                 <div className="color">
                     <div className="box-conteiner">
-                        <div className="caja">{unidad.identificador}</div>
-                        <div className="caja">Piso: {unidad.piso}</div>
-                        <div className="caja">numero: {unidad.numero}</div>
+                        <div className="caja">{reclamo.idReclamo}</div>
+                        <div className="caja">{reclamo.estado}</div>
+                        <div className="caja">{reclamo.fecha}</div>
                     </div>
-                    <div>
-                        <p>Habitado:</p>
-                        <div className="caja">{unidad.habitado}</div>
+                    <div className="box-conteiner">
+                        <div className="caja">Edificio: {reclamo.codigo}</div>
+                        <div className="caja">Unidad / Area comun: {reclamo.identificador}</div>
+                        <div className="caja">Persona: {reclamo.documento}</div>
+                        <div className="caja">tipo: {reclamo.tipoReclamo}</div>
+                    </div>
+                    <div className="box-conteiner">
+                        <div className="caja">Descripcion: {reclamo.descripcion}</div>
                     </div>
                 </div>
             </>
@@ -88,4 +93,4 @@ function BuscarUnidades() {
     );
 }
 
-export default BuscarUnidades;
+export default BuscarReclamos;
