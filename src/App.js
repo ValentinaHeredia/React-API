@@ -5,16 +5,19 @@ import Empleado from './Componentes/Empleados/PagEmpleados/Empleado';
 import Reclamos from './Componentes/Empleados/PagReclamos/Reclamos';
 import Usuario from './Componentes/Empleados/PagUsuario/Usuario';
 import Personas from './Componentes/Empleados/PagPersonas/Personas';
+import Unidades from './Componentes/Empleados/PagUnidades/Unidades';
 
 function App() {
 
   return (
     <div>
       {/*
+
       <Empleado/>
       <Reclamos/>
       <Usuario/>
       <Personas/>
+      <Unidades/>
       */}
       <Edificios/>
     </div>

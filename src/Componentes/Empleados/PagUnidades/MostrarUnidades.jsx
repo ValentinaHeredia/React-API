@@ -4,7 +4,7 @@ export default function MostrarUnidades(){
     const[unidadesList, setUnidadesList] = useState([]);
 
     async function getUnidades() {
-        let respuesta = await fetch("http://localhost:8081/api/unidades/listarUnidades");
+        let respuesta = await fetch("http://localhost:8081/api/unidades/obtenerTodasLasUnidades");
         let unidades = await respuesta.json();
         console.log(unidades);
         setUnidadesList(unidades)
@@ -20,10 +20,16 @@ export default function MostrarUnidades(){
                 {
                     unidadesList.map( (u) => (
                         <div>
-                            <div className="box-conteiner">
-                                <div className="caja">{u}</div>
-                                <div className="caja">{u}</div>
-                                <div></div>
+                            <div className="color">
+                                <div className="box-conteiner">
+                                    <div className="caja">{u.identificador}</div>
+                                    <div className="caja">{u.piso}</div>
+                                    <div className="caja">{u.numero}</div>
+                                </div>
+                                <div>
+                                    <p>Estado:</p>
+                                    <div className="caja">{u.habitado}</div>
+                                </div>
                             </div>
                         </div>
                     ))
