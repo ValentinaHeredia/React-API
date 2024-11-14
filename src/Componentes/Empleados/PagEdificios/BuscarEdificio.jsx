@@ -5,32 +5,48 @@ function BuscarEdificio() {
   const [edificio, setEdificio] = useState(null); 
   const [error, setError] = useState(null);  
 
-  const handleChange = (event) => {
-    setCode(event.target.value); 
-  };
+  const handleChange = async (event) => {
+    const value = event.target.value;
+    setCode(value);
 
-  const handleSearch = async () => {
-    if (code.trim() === '') { // Verifica si el campo está vacío
-      setEdificio(null); // Limpia los datos del edificio
-      setError(null); // Limpia cualquier error
+    if (value.trim() === '') {
+      setEdificio(null);
+      setError(null);
       return;
     }
 
-    const numericCode = parseInt(code, 10);  
-
+    const numericCode = parseInt(value, 10);
     if (isNaN(numericCode)) {
       setError('El código debe ser un número válido.');
-      setEdificio(null); // Asegúrate de limpiar el estado del edificio aquí también
+      setEdificio(null);
       return;
     }
 
+    await buscarEdificio(numericCode);
+  };
+
+  const handleKeyDown = async (event) => {
+    if (event.key === 'Enter') {
+      const numericCode = parseInt(code, 10);
+
+      if (isNaN(numericCode) || code.trim() === '') {
+        setError('El código debe ser un número válido.');
+        setEdificio(null);
+        return;
+      }
+
+      await buscarEdificio(numericCode);
+    }
+  };
+
+  const buscarEdificio = async (numericCode) => {
     try {
-      const response = await fetch(`http://localhost:8081/api/edificios/obtenerEdificioPorCodigo/${numericCode}`); 
+      const response = await fetch(`http://localhost:8081/api/edificios/obtenerEdificioPorCodigo/${numericCode}`);
       const data = await response.json();
 
       if (response.ok) {
-        setEdificio(data);  
-        setError(null);   
+        setEdificio(data);
+        setError(null);
       } else {
         setError('No existe este edificio');
         setEdificio(null);
@@ -47,9 +63,9 @@ function BuscarEdificio() {
         type="search"
         value={code}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
         placeholder="Ingresa el código del producto"
       />
-      <button onClick={handleSearch}>Buscar</button>
 
       {error && <p>{error}</p>}
 

@@ -4,7 +4,7 @@ export default function MostrarUnidades(){
     const[unidadesList, setUnidadesList] = useState([]);
 
     async function getUnidades() {
-        let respuesta = await fetch("http://localhost:8081/api/unidades/obtenerTodasLasUnidades");
+        let respuesta = await fetch("http://localhost:8081/api/unidades/listarUnidades");
         let unidades = await respuesta.json();
         console.log(unidades);
         setUnidadesList(unidades)

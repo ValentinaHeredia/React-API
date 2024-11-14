@@ -1,3 +1,4 @@
+import BuscarEdificio from "../PagEdificios/BuscarEdificio";
 import MostrarUnidades from "./MostrarUnidades";
 
 export default function Unidades(){

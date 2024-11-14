@@ -12,14 +12,14 @@ function App() {
   return (
     <div>
       {/*
-
+      <Edificios/>
       <Empleado/>
       <Reclamos/>
       <Usuario/>
       <Personas/>
-      <Unidades/>
+
       */}
-      <Edificios/>
+      <Unidades/>
     </div>
   );
 }
