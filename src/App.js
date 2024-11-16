@@ -7,20 +7,21 @@ import Usuario from './Componentes/Empleados/PagUsuario/Usuario';
 import Personas from './Componentes/Empleados/PagPersonas/Personas';
 import Unidades from './Componentes/Empleados/PagUnidades/Unidades';
 
+
+
 function App() {
 
   return (
     <div>
       {/*
       <Edificios/>
-      <Usuario/>
       <Unidades/>
       <Reclamos/>
       <Empleado/>
 
-
-      */}
       <Personas/>
+      */}
+      <Usuario/>
     </div>
   );
 }

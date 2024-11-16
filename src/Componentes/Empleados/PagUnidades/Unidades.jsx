@@ -8,6 +8,7 @@ export default function Unidades(){
     return(
         <div>
             <h1>Unidades</h1>
+            <p>Buscar</p>
             <BuscarUnidades/>
             <CrearUnidad/>
             <BorrarUnidad/>
