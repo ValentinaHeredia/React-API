@@ -3,6 +3,7 @@ import BorrarUnidad from "./BorrarUnidad";
 import BuscarUnidades from "./BuscarUnidades";
 import CrearUnidad from "./CrearUnidad";
 import MostrarUnidades from "./MostrarUnidades";
+import TransferirUnidad from "./TransferirUnidad";
 
 export default function Unidades(){
     return(
@@ -12,6 +13,7 @@ export default function Unidades(){
             <BuscarUnidades/>
             <CrearUnidad/>
             <BorrarUnidad/>
+            <TransferirUnidad/>
             <MostrarUnidades/>
         </div>
     )
