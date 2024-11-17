@@ -1,0 +1,61 @@
+import React, { useState } from "react";
+
+export default function BuscarDuenioUnidad() {
+    const [idUnidad, setIdUnidad] = useState("");
+    const [duenios, setDuenios] = useState([]); // Cambiado a array para manejar múltiples dueños
+    const [error, setError] = useState("");
+
+    const handleSearch = async () => {
+        if (!idUnidad.trim()) {
+            setError("Por favor, ingrese un ID de unidad válido.");
+            setDuenios([]); // Limpiar la lista de dueños previos
+            return;
+        }
+
+        try {
+            setError(""); // Limpiar errores previos
+            const response = await fetch(
+                `http://localhost:8081/api/unidades/dueniosPorUnidad/${idUnidad}`
+            );
+
+            const data = await response.json();
+            console.log("Datos recibidos:", data); // Depuración
+
+            if (!response.ok || !data.length) {
+                throw new Error("No se encontraron dueños para esta unidad.");
+            }
+
+            setDuenios(data); // Guardar el array de dueños
+        } catch (err) {
+            setError(err.message); // Mostrar el mensaje de error
+            setDuenios([]); // Limpiar datos previos
+        }
+    };
+
+    return (
+        <div>
+            <h2>Buscar Dueños por Unidad</h2>
+            <input
+                type="search"
+                placeholder="Ingrese el ID de la unidad (ej: 1)"
+                value={idUnidad}
+                onChange={(e) => setIdUnidad(e.target.value)}
+            />
+            <button onClick={handleSearch}>Buscar</button>
+
+            {error && <p>{error}</p>}
+
+            {duenios.length > 0 ? (
+                <ul>
+                    {duenios.map((duenio, index) => (
+                        <li key={index}>
+                            Nombre: {duenio.nombre} - Documento: {duenio.documento}
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                !error && <p>No se encontró información de dueños.</p>
+            )}
+        </div>
+    );
+}
