@@ -2,6 +2,7 @@ import BuscarEdificio from "../PagEdificios/BuscarEdificio";
 import BorrarUnidad from "./BorrarUnidad";
 import BuscarUnidades from "./BuscarUnidades";
 import CrearUnidad from "./CrearUnidad";
+import LiberarUnidad from "./LiberarUnidad";
 import MostrarUnidades from "./MostrarUnidades";
 import TransferirUnidad from "./TransferirUnidad";
 
@@ -14,6 +15,7 @@ export default function Unidades(){
             <CrearUnidad/>
             <BorrarUnidad/>
             <TransferirUnidad/>
+            <LiberarUnidad/>
             <MostrarUnidades/>
         </div>
     )
