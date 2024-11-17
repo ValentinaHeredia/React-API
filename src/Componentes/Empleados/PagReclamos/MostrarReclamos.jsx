@@ -31,6 +31,9 @@ export default function MostrarReclamos(){
                                     <div className="caja">Persona: {r.documento}</div>
                                     <div className="caja">tipo: {r.tipoReclamo}</div>
                                 </div>
+                                <div>
+                                    <div className="caja">Lugar: {r.ubicacion}</div>
+                                </div>
                                 <div className="box-conteiner">
                                     <div className="caja">Descripcion: {r.descripcion}</div>
                                 </div>
