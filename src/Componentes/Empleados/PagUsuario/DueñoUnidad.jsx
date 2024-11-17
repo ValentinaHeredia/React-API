@@ -34,10 +34,9 @@ export default function BuscarDuenioUnidad() {
 
     return (
         <div>
-            <h2>Buscar Dueños por Unidad</h2>
             <input
                 type="search"
-                placeholder="Ingrese el ID de la unidad (ej: 1)"
+                placeholder="ID unidad"
                 value={idUnidad}
                 onChange={(e) => setIdUnidad(e.target.value)}
             />

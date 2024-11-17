@@ -37,7 +37,6 @@ export default function BorrarDuenio() {
 
     return (
         <div>
-            <h2>Eliminar Dueño</h2>
             <form onSubmit={eliminarDuenio}>
                 <div>
                     <label>ID Unidad:</label>

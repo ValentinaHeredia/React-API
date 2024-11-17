@@ -30,7 +30,7 @@ export default function LiberarUnidad() {
 
     return (
         <div>
-            <p>Liberar Unidad</p>
+            <h2>Liberar Unidad</h2>
             <form onSubmit={liberarUnidad}>
                 <div>
                     <label>ID de la Unidad:</label>
