@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 
 function Login() {
     const [documento, setDocumento] = useState('');
     const [contrasenia, setContrasenia] = useState('');
     const [tipoUsuario, setTipoUsuario] = useState(''); // No hay opción seleccionada por defecto
     const [error, setError] = useState('');
+    const { login } = useAuth(); // Usar la función login del contexto
     const navigate = useNavigate();
 
     const handleLogin = async () => {
@@ -26,6 +28,8 @@ function Login() {
         const isValid = await response.json();
 
         if (isValid) {
+            // Actualizar el rol del usuario en el contexto y navegar a la página correspondiente
+            login(tipoUsuario);
             if (tipoUsuario === 'Usuario') {
             navigate('/Usuarios');
             } else {
