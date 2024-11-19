@@ -3,6 +3,7 @@ import BuscarReclamos from "./BuscarReclamos";
 import CambiarEstado from "./CambiarEstado";
 import LugarReclamo from "./LugarReclamo";
 import MostrarReclamos from "./MostrarReclamos";
+import ObtenerReclamoACporEdificio from "./ObtenerReclamoACporEdificio";
 import ObtenerReclamoEstado from "./ObtenerReclamoEstado";
 import ObtenerReclamosPorRangoFechas from "./ObtenerReclamosPorRangoFechas";
 import ObtenerReclamosPorTipo from "./ObtenerReclamosPorTipo";
@@ -33,6 +34,8 @@ export default function Reclamos(){
             <ObtenerReclamosPorTipo/>
             <p>Obtener reclamos por rango de fecha</p>
             <ObtenerReclamosPorRangoFechas/>
+            <p>Obtener reclamos area comun por Edificio</p>
+            <ObtenerReclamoACporEdificio/>
             <MostrarReclamos/>
         </div>
     )

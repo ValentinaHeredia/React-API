@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ObtenerReclamosPorRangoFechasTiempoReal() {
-    const [fechaInicio, setFechaInicio] = useState('');
-    const [fechaFin, setFechaFin] = useState('');
+export default function ObtenerReclamoACporEdificio() {
+    const [codigoEdificio, setCodigoEdificio] = useState('');
     const [reclamos, setReclamos] = useState([]);
     const [mensaje, setMensaje] = useState('');
 
     useEffect(() => {
-        // Validar que ambas fechas estén presentes antes de buscar
-        if (!fechaInicio || !fechaFin) {
-            setMensaje('Por favor, ingresa ambas fechas para el rango.');
+        // Si el código de edificio está vacío, limpiamos los resultados
+        if (codigoEdificio === '') {
             setReclamos([]);
+            setMensaje('Por favor ingresa un código de edificio.');
             return;
         }
 
         const obtenerReclamos = async () => {
             try {
-                const url = `http://localhost:8081/api/reclamos/obtenerReclamoConRangoFechas/${fechaInicio}/${fechaFin}`;
+                const url = `http://localhost:8081/api/reclamos/obtenerReclamosAreaComun/${codigoEdificio}`;
                 const response = await fetch(url);
 
                 if (response.ok) {
@@ -25,11 +24,11 @@ export default function ObtenerReclamosPorRangoFechasTiempoReal() {
                         setReclamos(data);
                         setMensaje('');
                     } else {
-                        setMensaje('No se encontraron reclamos en ese rango de fechas.');
+                        setMensaje('No se encontraron reclamos para este edificio.');
                         setReclamos([]);
                     }
                 } else {
-                    setMensaje('Error al buscar reclamos. Verifica las fechas.');
+                    setMensaje('Error al obtener los reclamos.');
                     setReclamos([]);
                 }
             } catch (error) {
@@ -40,29 +39,19 @@ export default function ObtenerReclamosPorRangoFechasTiempoReal() {
         };
 
         obtenerReclamos();
-    }, [fechaInicio, fechaFin]); // Ejecuta cada vez que fechaInicio o fechaFin cambien
+    }, [codigoEdificio]); // Ejecuta cada vez que `codigoEdificio` cambia
 
     return (
         <div>
-            <h3>Obtener Reclamos por Rango de Fechas</h3>
+            <h3>Obtener Reclamos de Área Común por Edificio</h3>
             <div>
-                <label htmlFor="fechaInicio">Fecha Inicio:</label>
+                <label htmlFor="codigoEdificio">Código del Edificio:</label>
                 <input
                     type="text"
-                    id="fechaInicio"
-                    placeholder="Ej: 01-01-24"
-                    value={fechaInicio}
-                    onChange={(e) => setFechaInicio(e.target.value)}
-                />
-            </div>
-            <div>
-                <label htmlFor="fechaFin">Fecha Fin:</label>
-                <input
-                    type="text"
-                    id="fechaFin"
-                    placeholder="Ej: 03-01-24"
-                    value={fechaFin}
-                    onChange={(e) => setFechaFin(e.target.value)}
+                    id="codigoEdificio"
+                    placeholder="Ej: 101"
+                    value={codigoEdificio}
+                    onChange={(e) => setCodigoEdificio(e.target.value)}
                 />
             </div>
 
@@ -70,7 +59,7 @@ export default function ObtenerReclamosPorRangoFechasTiempoReal() {
 
             {reclamos.length > 0 && (
                 <div>
-                    <h4>Reclamos entre {fechaInicio} y {fechaFin}:</h4>
+                    <h4>Reclamos del Edificio {codigoEdificio}:</h4>
                     <ul>
                         {reclamos.map((reclamo) => (
                             <li key={reclamo.idReclamo}>

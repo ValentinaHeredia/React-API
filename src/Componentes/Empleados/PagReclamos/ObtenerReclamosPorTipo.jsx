@@ -55,7 +55,7 @@ export default function ObtenerReclamosPorTipoCheckbox() {
 
     return (
         <div>
-            <h3>Obtener Reclamos por Tipo (Checkbox en Tiempo Real)</h3>
+            <h3>Obtener Reclamos por Tipo</h3>
             <div>
                 <p>Selecciona un tipo de reclamo:</p>
                 {tiposDeReclamo.map((tipo) => (
