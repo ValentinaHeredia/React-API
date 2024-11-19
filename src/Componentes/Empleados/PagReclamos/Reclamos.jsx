@@ -1,6 +1,11 @@
+import BorrarReclamo from "./BorrarReclamo";
 import BuscarReclamos from "./BuscarReclamos";
+import CambiarEstado from "./CambiarEstado";
 import LugarReclamo from "./LugarReclamo";
 import MostrarReclamos from "./MostrarReclamos";
+import ObtenerReclamoEstado from "./ObtenerReclamoEstado";
+import ObtenerReclamosPorRangoFechas from "./ObtenerReclamosPorRangoFechas";
+import ObtenerReclamosPorTipo from "./ObtenerReclamosPorTipo";
 import ReclamoPorEdificio from "./ReclamoPorEdificio";
 import ReclamoPorUnidad from "./ReclamoPorUnidad";
 import ReclamosPorPersona from "./ReclamosPersona";
@@ -18,6 +23,16 @@ export default function Reclamos(){
             <ReclamosPorPersona/>
             <p>Lugar Reclamo</p>
             <LugarReclamo/>
+            <p>Borrar reclamo</p>
+            <BorrarReclamo/>
+            <p>Cambiar estado</p>
+            <CambiarEstado/>
+            <p>Obtener reclamos por estado</p>
+            <ObtenerReclamoEstado/>
+            <p>Obtener reclamos por tipo de reclamos</p>
+            <ObtenerReclamosPorTipo/>
+            <p>Obtener reclamos por rango de fecha</p>
+            <ObtenerReclamosPorRangoFechas/>
             <MostrarReclamos/>
         </div>
     )

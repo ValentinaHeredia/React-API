@@ -10,6 +10,14 @@
     width: 50%;
 }
 
+.letra{
+    font-size: 1.4em;
+}
+
+label{
+    margin-right: 5px;
+}
+
 .box-conteiner{
     margin: 10px;
     padding: 5px;
@@ -22,4 +30,14 @@
     width: 200px;
 }
 
+
+.funciones{
+    background-color: #F3F3F3;
+    width: 300px;
+
+}
+
+.azul{
+    background-color: rgb(155, 155, 245)  ;
+}
 

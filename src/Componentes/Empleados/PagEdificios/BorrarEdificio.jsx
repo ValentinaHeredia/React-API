@@ -27,7 +27,6 @@ export default function BorrarEdificio() {
 
     return (
         <div>
-            <h1>Eliminar Edificio</h1>
             <form onSubmit={eliminarEdificio}>
                 <div>
                 <label>ID del Edificio:</label>

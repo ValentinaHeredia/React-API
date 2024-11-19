@@ -7,11 +7,17 @@ export default function Edificios(){
     return(
         <div>
             <h1>Edificios</h1>
-            <p>Buscar</p>
-            <BuscarEdificio />
-            <CrearEdificio/>
-            <BorrarEdificio/>
-            <MostrarEdificios/>
+            <div className="conteiner">
+                <div className="funcionesSide rojo">
+                    <p className="letra">Buscar</p>
+                    <BuscarEdificio />
+                    <CrearEdificio/>
+                    <BorrarEdificio/>
+                </div>
+                <div className="resultadosSide azul">
+                    <MostrarEdificios/> 
+                </div>
+            </div>
         </div>
     )    
 }
