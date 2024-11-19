@@ -32,7 +32,6 @@ export default function BuscarHabitantesUnidad() {
 
     return (
         <div>
-            <h2>Buscar Habitantes por Unidad</h2>
             <input
                 type="search"
                 placeholder="Ingrese el ID de la unidad (ej: 101)"

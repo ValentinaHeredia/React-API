@@ -1,22 +1,13 @@
-import React,{useState, useEffect} from 'react';
-
 import './App.css';
+import Edificios from './Componentes/Empleados/PagEdificios/Edificios';
 
-import VistaEmpleado from './Componentes/VistaEmpleado';
-import VistaUsuario from './Componentes/VistaUsuario';
 
 
 
 function App() {
 
   return (
-    <div>
-      {/*
-      <VistaUsuario/>
-
-      */}
-      <VistaEmpleado/> 
-    </div>
+    <Edificios/>
   );
 }
 

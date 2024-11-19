@@ -18,11 +18,16 @@ export default function Usuario(){
     return(
         <div>
             <h1>Usuarios</h1>
+            <h4>Buscar por Documento</h4>
             <BuscarUsuario/>
             <p>-----------------------------------------------------</p>
+            <h4>Buscar habitantes por Unidad</h4>
             <BuscarHabitantesUnidad/>
             <p>-----------------------------------------------------</p>
-            <h4>Buscar Inquilino Por unidad</h4>
+            <h4>Buscar Habitante por Edificio</h4>
+            <BuscarHabitantesUnidad/>
+            <p>-----------------------------------------------------</p>
+            <h4>Buscar Inquilino Por Unidad</h4>
             <BuscarInquilinosPorUnidad/>
             <p>-----------------------------------------------------</p>
             <h4>Dueño por Unidad</h4>
@@ -32,26 +37,26 @@ export default function Usuario(){
             <BuscarDueniosEdificio/>
             <p>-----------------------------------------------------</p>
             <CrearUsuario/>
-            <br />
+            <br/>
             <BorrarUsuario/>
-            <br />
+            <br/>
             <ModificarContrasenia/>
             <p>-----------------------------------------------------</p>
             <h4>Crear habitante</h4>
             <CrearHabitante/>
-            <br />
+            <br/>
             <h4>Borrar habitante</h4>
             <BorrarHabitante/>
             <p>-----------------------------------------------------</p>
             <h4>Crear Dueño</h4>
             <CrearDuenio/>
-            <br />
+            <br/>
             <h4>Borrar Dueño</h4>
             <BorrarDuenio/>
             <p>-----------------------------------------------------</p>
             <h4>Crear Inquilino</h4>
             <CrearInquilino/>
-            <br />
+            <br/>
             <h4>Borrar Inquilino</h4>
             <BorrarInquilino/>
             <p>-----------------------------------------------------</p>
