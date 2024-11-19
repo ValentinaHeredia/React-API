@@ -1,5 +1,8 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Edificios from './Componentes/Empleados/PagEdificios/Edificios';
+import EmpleadosV from './Componentes/EmpleadosV';
+import UsuariosV from './Componentes/UsuariosV';
+import Login from './Componentes/Login';
 
 
 
@@ -7,7 +10,13 @@ import Edificios from './Componentes/Empleados/PagEdificios/Edificios';
 function App() {
 
   return (
-    <Edificios/>
+    <BrowserRouter>
+      <Routes>
+        <Route path='' element={<Login/>}/>
+        <Route path='Empleados' element={<EmpleadosV/>}/>
+        <Route path='Usuarios' element={<UsuariosV/>}/>
+      </Routes>
+    </BrowserRouter >
   );
 }
 

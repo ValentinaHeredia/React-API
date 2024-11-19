@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function CrearReclamo() {
+export default function CrearReclamoAreaComun() {
     const [documentoUsuario, setDocumentoUsuario] = useState("");
     const [codigoEdificio, setCodigoEdificio] = useState("");
     const [ubicacion, setUbicacion] = useState("");
