@@ -1,34 +1,28 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-    const [userRole, setUserRole] = useState(() => {
-        // Recuperar el estado del almacenamiento local al cargar
-        return localStorage.getItem('userRole') || null;
-    });
+    const [userRole, setUserRole] = useState(localStorage.getItem('userRole') || null);
+    const [userDocument, setUserDocument] = useState(localStorage.getItem('userDocument') || null);
 
-    const login = (role) => {
+    const login = (role, document) => {
         setUserRole(role);
-        localStorage.setItem('userRole', role); // Guardar en localStorage
+        setUserDocument(document);
+        localStorage.setItem('userRole', role);
+        localStorage.setItem('userDocument', document); // Guardar el documento
     };
 
     const logout = () => {
         setUserRole(null);
-        localStorage.removeItem('userRole'); // Eliminar del localStorage
+        setUserDocument(null);
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userDocument');
     };
 
-    useEffect(() => {
-        // Sincronizar el estado si `userRole` cambia
-        if (userRole) {
-            localStorage.setItem('userRole', userRole);
-        } else {
-            localStorage.removeItem('userRole');
-        }
-    }, [userRole]);
-
     return (
-        <AuthContext.Provider value={{ userRole, login, logout }}>
+        <AuthContext.Provider value={{ userRole, userDocument, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

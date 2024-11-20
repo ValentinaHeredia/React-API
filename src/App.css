@@ -5,43 +5,45 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.color{
-    background-color: aliceblue;
-    width: 50%;
+.input{
+    width: 600px;
+    height: 50px;
+    margin: 15px 0px 15px 100px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F8F7F7;
+    box-shadow: 10px 10px 5px rgba(172, 172, 172, 0.5);
+    font-size: 1.3em;
 }
 
-.fondo{
-    background-color: #F3F3F3;
-}
-
-.letra{
-    font-size: 1.4em;
-}
-
-label{
-    margin-right: 5px;
-}
-
-.box-conteiner{
-    margin: 10px;
-    padding: 5px;
+.body{
+    height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow: hidden;
 }
 
-.caja{
-    width: 200px;
+.img{
+    height: 100%;
+    width: auto;
+    object-fit: cover;
 }
 
-
-.funciones{
-    background-color: #F3F3F3;
-    width: 300px;
-
+.loginFormulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.azul{
-    background-color: rgb(155, 155, 245)  ;
+.botonEnviar{
+    background-color: #CD2C2C;
+    color: white;
+    height: 50px;
+    margin: 15px 0px 15px 100px;
+    width: 250px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px rgba(172, 172, 172, 0.5);
 }
-
