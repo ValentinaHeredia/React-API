@@ -27,7 +27,7 @@ function Login() {
 
             if (isValid) {
                 login(tipoUsuario, documento); // También pasar el documento
-                navigate(tipoUsuario === 'Usuario' ? '/Usuarios' : '/Empleados');
+                navigate(tipoUsuario === 'Usuario' ? '/Usuarios/MisReclamos' : '/Empleados/Edificios');
             } else {
                 setError('Datos incorrectos');
             }
@@ -41,7 +41,7 @@ function Login() {
         <div className='body'>
             <div className='loginFormulario'>
                 <select className='input' value={tipoUsuario} onChange={(e) => setTipoUsuario(e.target.value)}>
-                    <option value="">Seleccione un tipo de usuario</option> {/* Opción por defecto vacía */}
+                    <option value="">Entrar como...</option> {/* Opción por defecto vacía */}
                     <option value="Usuario">Usuario</option>
                     <option value="Empleado">Empleado</option>
                 </select>
