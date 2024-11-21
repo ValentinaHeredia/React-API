@@ -13,6 +13,8 @@ import Personas from './Componentes/Empleados/PagPersonas/Personas';
 import Reclamos from './Componentes/Empleados/PagReclamos/Reclamos';
 import Usuario from './Componentes/Empleados/PagUsuario/Usuario';
 import Empleado from './Componentes/Empleados/PagEmpleados/Empleado';
+import MisReclamos from './Componentes/Usuario/MisReclamo/MisReclamos';
+import ReclamosGenerales from './Componentes/Usuario/ReclamosGenerales/ReclamosGenerales';
 
 function App() {
   return (
@@ -27,7 +29,11 @@ function App() {
                 <UsuariosV />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route path="MisReclamos" element={<MisReclamos />} />
+            <Route path="ReclamosGenerales" element={<ReclamosGenerales />} />
+          </Route>
+
           <Route
             path="/Empleados"
             element={

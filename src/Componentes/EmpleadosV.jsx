@@ -4,13 +4,13 @@ export default function EmpleadosV() {
     return (
     <div className="fondo">
         <nav>
-            <ul>
-                <li><Link to="Edificios">Edificios</Link></li>
-                <li><Link to="Unidades">Unidades</Link></li>
-                <li><Link to="Reclamos">Reclamos</Link></li>
-                <li><Link to="Personas">Personas</Link></li>
-                <li><Link to="Usuarios">Usuarios</Link></li>
-                <li><Link to="Empleados">Empleados</Link></li>
+            <ul className='navbarContenedor'>
+                <li className='navbar'><Link to="Edificios" className='links'>Edificios</Link></li>
+                <li className='navbar'><Link to="Unidades" className='links'>Unidades</Link></li>
+                <li className='navbar'><Link to="Reclamos" className='links'>Reclamos</Link></li>
+                <li className='navbar'><Link to="Personas" className='links'>Personas</Link></li>
+                <li className='navbar'><Link to="Usuarios" className='links'>Usuarios</Link></li>
+                <li className='navbar'><Link to="Empleados" className='links'>Empleados</Link></li>
             </ul>
         </nav>
         <Outlet />

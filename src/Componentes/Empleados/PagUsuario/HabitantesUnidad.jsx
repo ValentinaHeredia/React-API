@@ -38,7 +38,7 @@ export default function BuscarHabitantesUnidad() {
                 value={unidadId}
                 onChange={(e) => setUnidadId(e.target.value)}
             />
-            <button onClick={handleSearch}>Buscar</button>
+            <button className="botones" onClick={handleSearch}>Buscar</button>
             {error && <p>{error}</p>}
             {habitantes.length > 0 && (
                 <div>

@@ -52,7 +52,7 @@ export default function ModificarContrasenia() {
                 required
             />
             </div>
-            <button type="submit">Modificar</button>
+            <button className='botones' type="submit">Modificar</button>
         </form>
         {mensaje && <p>{mensaje}</p>}
         </div>

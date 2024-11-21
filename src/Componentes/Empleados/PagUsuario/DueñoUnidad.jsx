@@ -40,7 +40,7 @@ export default function BuscarDuenioUnidad() {
                 value={idUnidad}
                 onChange={(e) => setIdUnidad(e.target.value)}
             />
-            <button onClick={handleSearch}>Buscar</button>
+            <button className="botones" onClick={handleSearch}>Buscar</button>
 
             {error && <p>{error}</p>}
 

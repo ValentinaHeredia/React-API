@@ -66,7 +66,7 @@ export default function CambiarEstado() {
                         required
                     ></textarea>
                 </div>
-                <button type="submit">Cambiar Estado</button>
+                <button className='botones' type="submit">Cambiar Estado</button>
             </form>
             {mensaje && <p>{mensaje}</p>}
         </div>

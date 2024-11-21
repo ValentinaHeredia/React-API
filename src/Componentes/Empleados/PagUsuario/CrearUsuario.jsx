@@ -52,7 +52,7 @@ export default function CrearUsuario() {
                 required
             />
             </div>
-            <button type="submit">Agregar</button>
+            <button className='botones' type="submit">Agregar</button>
         </form>
         {mensaje && <p>{mensaje}</p>}
         </div>

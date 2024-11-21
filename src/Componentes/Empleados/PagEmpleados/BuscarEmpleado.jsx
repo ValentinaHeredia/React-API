@@ -40,6 +40,7 @@ export default function BuscarEmpleado() {
             onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button
+            className="botones"
             onClick={handleSearch}
         >
             Buscar

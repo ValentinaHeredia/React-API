@@ -30,14 +30,14 @@ export default function BorrarEdificio() {
             <form onSubmit={eliminarEdificio}>
                 <div>
                 <label>ID del Edificio:</label>
-                <input
+                <input className="inputFunciones"
                     type="text"
                     value={id}
                     onChange={(e) => setId(e.target.value)}
                     required
                 />
                 </div>
-                <button type="submit">Eliminar</button>
+                <button className='botones' type="submit">Eliminar</button>
             </form>
             {mensaje && <p>{mensaje}</p>}
         </div>

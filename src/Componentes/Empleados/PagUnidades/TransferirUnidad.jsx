@@ -58,7 +58,7 @@ export default function TransferirUnidad() {
                         required
                     />
                 </div>
-                <button type="submit">Transferir Unidad</button>
+                <button className='botones' type="submit">Transferir Unidad</button>
             </form>
 
             {mensaje && <p>{mensaje}</p>}

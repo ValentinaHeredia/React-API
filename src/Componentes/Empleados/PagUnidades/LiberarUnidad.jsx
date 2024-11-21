@@ -41,7 +41,7 @@ export default function LiberarUnidad() {
                         required
                     />
                 </div>
-                <button type="submit">Liberar</button>
+                <button className='botones' type="submit">Liberar</button>
             </form>
             {mensaje && <p>{mensaje}</p>}
         </div>

@@ -56,7 +56,7 @@ export default function BorrarDuenio() {
                         required
                     />
                 </div>
-                <button type="submit">Eliminar</button>
+                <button className='botones' type="submit">Eliminar</button>
             </form>
             {mensaje && <p>{mensaje}</p>}
         </div>

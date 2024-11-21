@@ -6,15 +6,15 @@ import MostrarEdificios from "./MostrarEdificios";
 export default function Edificios(){
     return(
         <div>
-            <h1>Edificios</h1>
-            <div className="conteiner">
-                <div className="funcionesSide rojo">
+            <div className="paginaOrden">
+                <div className="funciones">
+                <h1>Edificios</h1>
                     <p className="letra">Buscar</p>
                     <BuscarEdificio />
                     <CrearEdificio/>
                     <BorrarEdificio/>
                 </div>
-                <div className="resultadosSide azul">
+                <div>
                     <MostrarEdificios/> 
                 </div>
             </div>

@@ -43,7 +43,7 @@ export default function HabitarUnidad() {
                     placeholder="Ingrese el ID de la unidad"
                     required
                 />
-                <button type="submit">Habitar</button>
+                <button className="botones" type="submit">Habitar</button>
             </form>
             {mensaje && <p>{mensaje}</p>}
         </div>

@@ -38,7 +38,7 @@ export default function BuscarUsuario() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button
+        <button className="botones"
             onClick={handleSearch}
         >
             Buscar
