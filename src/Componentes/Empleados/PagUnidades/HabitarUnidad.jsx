@@ -32,17 +32,18 @@ export default function HabitarUnidad() {
 
     return (
         <div>
-            <h2>Habitar Unidad</h2>
+            <p className="subtitulos">Habitar Unidad</p>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="idUnidad">ID de la Unidad:</label>
-                <input
-                    type="text"
-                    id="idUnidad"
-                    value={idUnidad}
-                    onChange={(e) => setIdUnidad(e.target.value)}
-                    placeholder="Ingrese el ID de la unidad"
-                    required
-                />
+                <div className="divInputFunciones">
+                    <div className="divFunciones">ID Unidad</div>
+                    <input className="inputFunciones"
+                        type="text"
+                        id="idUnidad"
+                        value={idUnidad}
+                        onChange={(e) => setIdUnidad(e.target.value)}
+                        required
+                    />
+                </div>
                 <button className="botones" type="submit">Habitar</button>
             </form>
             {mensaje && <p>{mensaje}</p>}

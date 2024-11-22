@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function BuscarUnidades() {
     const [code, setCode] = useState(""); 
@@ -61,6 +61,7 @@ function BuscarUnidades() {
         <div>
             <label className="buscarLabel">Buscar</label>
             <input
+                className="inputFunciones"
                 type="search"
                 value={code}
                 onChange={handleChange}

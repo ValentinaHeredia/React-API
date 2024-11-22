@@ -34,29 +34,32 @@ export default function CrearUnidad() {
 
     return (
         <div>
-            <h1>Agregar Unidad</h1>
+            <p className='subtitulos'>Agregar Unidad</p>
             <form onSubmit={agregarUnidad}>
-                <div>
-                    <label>Piso:</label>
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Piso</div>
                     <input
+                        className="inputFunciones"
                         type="text"
                         value={piso}
                         onChange={(e) => setPiso(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Número:</label>
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Numero</div>
                     <input
+                        className="inputFunciones"
                         type="text"
                         value={numero}
                         onChange={(e) => setNumero(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Código del Edificio:</label>
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Id Edificio</div>
                     <input
+                        className="inputFunciones"
                         type="text"
                         value={codigoEdificio}
                         onChange={(e) => setCodigoEdificio(e.target.value)}

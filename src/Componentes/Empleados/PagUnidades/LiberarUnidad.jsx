@@ -30,11 +30,11 @@ export default function LiberarUnidad() {
 
     return (
         <div>
-            <h2>Liberar Unidad</h2>
+            <p className='subtitulos'>Liberar Unidad</p>
             <form onSubmit={liberarUnidad}>
-                <div>
-                    <label>ID de la Unidad:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>ID unidad</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={id}
                         onChange={(e) => setId(e.target.value)}

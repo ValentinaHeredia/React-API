@@ -1,4 +1,3 @@
-import BuscarEdificio from "../PagEdificios/BuscarEdificio";
 import BorrarUnidad from "./BorrarUnidad";
 import BuscarUnidades from "./BuscarUnidades";
 import CrearUnidad from "./CrearUnidad";
@@ -11,24 +10,25 @@ import BuscarUnidadesEdificio from "./UnidadEdificio";
 export default function Unidades(){
     return(
         <div>
-            <h1>Unidades</h1>
-            <p>Buscar</p>
-            <BuscarUnidades/>
-            <br />
-            <BuscarUnidadesEdificio/>
-            <br />
-            <CrearUnidad/>
-            <br />
-            <BorrarUnidad/>
-            <br />
-            <TransferirUnidad/>
-            <br />
-            <LiberarUnidad/>
-            <br />
-            <HabitarUnidad/>
-            <br />
-            <MostrarUnidades/>
-
+            <div className="container">
+                <div className="buscarGrid">
+                    <BuscarUnidades />
+                </div>
+                <div className="funcionesGrid">
+                    <div className="funciones">
+                        <h1>Unidades</h1>
+                        <CrearUnidad/>
+                        <BorrarUnidad/>
+                        <TransferirUnidad/>
+                        <LiberarUnidad/>
+                        <HabitarUnidad/>
+                        <BuscarUnidadesEdificio/>
+                    </div>
+                </div>
+                <div className="resultadosGrid">
+                    <MostrarUnidades/>
+                </div>
+            </div>
         </div>
     )
 }

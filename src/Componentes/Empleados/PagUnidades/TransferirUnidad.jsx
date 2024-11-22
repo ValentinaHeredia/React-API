@@ -34,25 +34,25 @@ export default function TransferirUnidad() {
 
     return (
         <div>
-            <h3>Transferir Unidad</h3>
+            <p className='subtitulos'>Transferir Unidad</p>
             <form onSubmit={transferirUnidad}>
-                <div>
-                    <label htmlFor="idUnidad">ID de la Unidad:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Unidad ID</div>
+                    <input className='inputFunciones'
                         type="text"
                         id="idUnidad"
-                        placeholder="Ingresa el ID de la unidad"
+                        placeholder=""
                         value={idUnidad}
                         onChange={(e) => setIdUnidad(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label htmlFor="documento">Documento del Nuevo Propietario:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Nuevo Dueño</div>
+                    <input className='inputFunciones'
                         type="text"
                         id="documento"
-                        placeholder="Ingresa el documento del propietario"
+                        placeholder="Ingresa el documento..."
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}
                         required
