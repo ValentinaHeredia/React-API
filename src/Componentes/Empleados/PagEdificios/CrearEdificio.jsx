@@ -32,20 +32,20 @@ export default function CrearEdificio() {
 
     return (
         <div>
-            <p>Agregar edificio</p>
+            <p className='subtitulos'>Agregar edificio</p>
             <form onSubmit={agregarEdificio}>
-            <div>
-                <label>Nombre:</label>
-                <input
+            <div className='divInputFunciones'>
+                <div className='divFunciones'>Nombre</div>
+                <input className='inputFunciones'
                     type="text"
                     value={nombre}
                     onChange={(e) => setNombre(e.target.value)}
                     required
                 />
             </div>
-            <div>
-                <label>Dirección:</label>
-                <input
+            <div className='divInputFunciones'>
+                <div className='divFunciones'>Direccion</div>
+                <input className='inputFunciones'
                     type="text"
                     value={direccion}
                     onChange={(e) => setDireccion(e.target.value)}

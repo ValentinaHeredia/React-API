@@ -59,21 +59,22 @@ function BuscarEdificio() {
 
   return (
     <div>
-      <input
+      <label className="buscarLabel">Buscar</label>
+      <input className="inputFunciones"
         type="search"
         value={code}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        placeholder="Ingresa el código del producto"
+        placeholder="Id edificio..."
       />
 
       {error && <p>{error}</p>}
 
       {edificio && (
-        <div className="box-conteiner color">
-          <div className="caja">{edificio.codigo}</div>
-          <div className="caja">{edificio.nombre}</div>
-          <div className="caja">{edificio.direccion}</div>
+        <div className="boxDatos">
+          <div className="boxDato">Edificio {edificio.codigo}</div>
+          <div className="boxDato">{edificio.nombre}</div>
+          <div className="boxDato">{edificio.direccion}</div>
         </div>
       )}
     </div>

@@ -21,7 +21,7 @@ export default function MostrarEdificios(){
                     edificioList.map( (e) => (
                         <div>
                             <div className="boxDatos">
-                                <div className="boxDato">edificio {e.codigo}</div>
+                                <div className="boxDato">Edificio {e.codigo}</div>
                                 <div className="boxDato">{e.nombre}</div>
                                 <div className="boxDato">{e.direccion}</div>
                                 <div></div>

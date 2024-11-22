@@ -32,6 +32,7 @@ export default function BuscarUsuario() {
 
     return (
         <div>
+        <label className="buscarLabel">Buscar</label>
         <input
             type="search"
             placeholder="Ingrese el documento (ej: 31507343)"

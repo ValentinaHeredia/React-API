@@ -59,6 +59,7 @@ function BuscarUnidades() {
 
     return (
         <div>
+            <label className="buscarLabel">Buscar</label>
             <input
                 type="search"
                 value={code}

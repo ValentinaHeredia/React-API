@@ -59,7 +59,7 @@ function BuscarReclamos() {
 
     return (
         <div>
-        <label for="">Buscar: </label>
+        <label className="buscarLabel">Buscar</label>
         <input
             type="search"
             value={code}
