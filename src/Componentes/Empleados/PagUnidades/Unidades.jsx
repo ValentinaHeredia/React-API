@@ -1,4 +1,5 @@
 import BorrarUnidad from "./BorrarUnidad";
+import BuscarUnidadEdificio from "./BuscarUnidadEdificio";
 import BuscarUnidades from "./BuscarUnidades";
 import CrearUnidad from "./CrearUnidad";
 import HabitarUnidad from "./HabitarUnidad";
@@ -12,7 +13,7 @@ export default function Unidades(){
         <div>
             <div className="container">
                 <div className="buscarGrid">
-                    <BuscarUnidades />
+                    <BuscarUnidadEdificio/>
                 </div>
                 <div className="funcionesGrid">
                     <div className="funciones">
@@ -22,7 +23,6 @@ export default function Unidades(){
                         <TransferirUnidad/>
                         <LiberarUnidad/>
                         <HabitarUnidad/>
-                        <BuscarUnidadesEdificio/>
                     </div>
                 </div>
                 <div className="resultadosGrid">

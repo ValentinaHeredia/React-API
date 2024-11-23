@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function BuscarUnidades() {
     const [code, setCode] = useState(""); 
-    const [unidad, setUnidad] = useState(null); 
+    const [u, setUnidad] = useState(null); 
     const [error, setError] = useState(null);  
+    const [detallesVisibles, setDetallesVisibles] = useState({});
 
     const handleChange = async (event) => {
         const value = event.target.value;
@@ -57,30 +58,84 @@ function BuscarUnidades() {
         }
     };
 
+    const toggleDetalle = (id) => {
+        setDetallesVisibles((prev) => ({
+            ...prev,
+            [id]: !prev[id], // Alterna la visibilidad del detalle correspondiente
+        }));
+    };
+
     return (
         <div>
             <label className="buscarLabel">Buscar</label>
-            <input
-                className="inputFunciones"
+            <input className="inputFunciones"
                 type="search"
                 value={code}
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
-                placeholder="Ingresa el código de la unidad"
+                placeholder="ID unidad"
             />
 
             {error && <p>{error}</p>}
 
-            {unidad && (
+            {u && (
                 <div className="color">
-                    <div className="box-conteiner">
-                        <div className="caja">{unidad.identificador}</div>
-                        <div className="caja">Piso: {unidad.piso}</div>
-                        <div className="caja">Número: {unidad.numero}</div>
-                        <div className="caja">
-                            Habitado: {unidad.habitado === "t" ? "Sí" : "No"}
+                        <div className="boxDatosUnidad">
+                            <div className="boxDatoUnidad">ID: {u.identificador}</div>
+                            <div className="boxDatoUnidad">Piso: {u.piso}</div>
+                            <div className="boxDatoUnidad">Número: {u.numero}</div>
+                            <div className="boxDatoUnidad">Código de Edificio: {u.codigoEdificio}</div>
+
+                            <button onClick={() => toggleDetalle(u.identificador)} className="btnDetalle botonDetalle">
+                                {detallesVisibles[u.identificador] ? "Ocultar Detalle" : "Mostrar Detalle"}
+                            </button>
                         </div>
-                    </div>
+                        {detallesVisibles[u.identificador] && (
+                        <div className="detalleExtra">
+                            <div className="habitado">
+                                <div className="habitado">Habitado: {u.habitado === "t" ? "Sí" : "No"}</div>
+                            </div>
+                            <div className="personas">
+                                <div>
+                                    <h4>dueño/s</h4>
+                                    {u.duenios && u.duenios.length > 0 ? (
+                                        u.duenios.map((duenio, index) => (
+                                            <div key={index} className="">
+                                                Documento: {duenio.documento} - Nombre: {duenio.nombre}
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <div className="">Sin dueños registrados</div>
+                                    )}
+                                </div>
+                                <div>
+                                <h4>Inquilinos:</h4>
+                                {u.inquilinos && u.inquilinos.length > 0 ? (
+                                    u.inquilinos.map((inquilino, index) => (
+                                        <div key={index} className="caja">
+                                            Documento: {inquilino.documento} - Nombre: {inquilino.nombre}
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div className="caja">Sin inquilinos registrados</div>
+                                )}
+                                </div>
+                                
+                                <div>
+                                    <h4>Habitantes:</h4>
+                                    {u.habitantes && u.habitantes.length > 0 ? (
+                                        u.habitantes.map((habitante, index) => (
+                                            <div key={index} className="caja">
+                                                Documento: {habitante.documento} - Nombre: {habitante.nombre}
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <div className="caja">Sin habitantes registrados</div>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                        )}
                 </div>
             )}
         </div>

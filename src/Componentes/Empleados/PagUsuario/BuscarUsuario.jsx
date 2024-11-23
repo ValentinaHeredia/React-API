@@ -5,53 +5,57 @@ export default function BuscarUsuario() {
     const [usuario, setUsuario] = useState(null);
     const [error, setError] = useState("");
 
-    const handleSearch = async () => {
-        if (!searchTerm.trim()) {
-        setError("Por favor, ingrese un documento válido.");
-        setUsuario(null);
-        return;
+    const handleChange = async (event) => {
+        const value = event.target.value;
+        setSearchTerm(value);
+
+        if (value.trim() === "") {
+            setUsuario(null);
+            setError("");
+            return;
         }
 
+        await buscarUsuario(value);
+    };
+
+    const buscarUsuario = async (documento) => {
         try {
-        setError(""); // Limpiar errores previos
-        const response = await fetch(
-            `http://localhost:8081/api/usuarios/obtenerUsuarioPorDocumento/${searchTerm}`
-        );
+            const response = await fetch(
+                `http://localhost:8081/api/usuarios/obtenerUsuarioPorDocumento/${documento}`
+            );
+            const data = await response.json();
 
-        if (!response.ok) {
-            throw new Error("No se encontró el usuario.");
-        }
-
-        const data = await response.json();
-        setUsuario(data); // Guardar los datos obtenidos
+            if (response.ok) {
+                setUsuario(data);
+                setError("");
+            } else {
+                setError("No se encontró el usuario.");
+                setUsuario(null);
+            }
         } catch (err) {
-        setError(err.message); // Mostrar el mensaje de error
-        setUsuario(null); // Limpiar datos previos
+            setError("Error en la búsqueda.");
+            setUsuario(null);
         }
     };
 
     return (
         <div>
-        <label className="buscarLabel">Buscar</label>
-        <input
-            type="search"
-            placeholder="Ingrese el documento (ej: 31507343)"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button className="botones"
-            onClick={handleSearch}
-        >
-            Buscar
-        </button>
-        {error && <p>{error}</p>}
-        {usuario && (
-            <div className="box-conteiner color">
-                <div className="caja">{usuario.documento}</div>
-                <div></div>
-            </div>
-        )}
+            <label className="buscarLabel">Buscar</label>
+            <input
+                type="search"
+                placeholder="Ingrese el documento (ej: 31507343)"
+                value={searchTerm}
+                onChange={handleChange}
+                className="inputFunciones"
+            />
+            {error && <p>{error}</p>}
+            {usuario && (
+                <div className="box-conteiner color">
+                    <div className="caja">Documento: {usuario.documento}</div>
+                    <div className="caja">Contraseña: {usuario.contrasenia}</div>
+                    {/* Puedes agregar más detalles del usuario aquí */}
+                </div>
+            )}
         </div>
     );
 }
-

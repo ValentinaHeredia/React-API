@@ -31,33 +31,34 @@ export default function MostrarUnidades() {
                 <div key={u.identificador}>
                     <div>
                         <div className="boxDatosUnidad">
-                            <div className="">ID: {u.identificador}</div>
-                            <div className="">Piso: {u.piso}</div>
-                            <div className="">Número: {u.numero}</div>
-                            <div className="">Código de Edificio: {u.codigoEdificio}</div>
+                            <div className="boxDatoUnidad">ID: {u.identificador}</div>
+                            <div className="boxDatoUnidad">Piso: {u.piso}</div>
+                            <div className="boxDatoUnidad">Número: {u.numero}</div>
+                            <div className="boxDatoUnidad">Código de Edificio: {u.codigoEdificio}</div>
 
-                            <button onClick={() => toggleDetalle(u.identificador)} className="btnDetalle">
+                            <button onClick={() => toggleDetalle(u.identificador)} className="btnDetalle botonDetalle">
                                 {detallesVisibles[u.identificador] ? "Ocultar Detalle" : "Mostrar Detalle"}
                             </button>
                         </div>
                         {detallesVisibles[u.identificador] && (
-                        <div className="">
-                            <div>
-                                <div className="">Habitado: {u.habitado === "t" ? "Sí" : "No"}</div>
+                        <div className="detalleExtra">
+                            <div className="habitado">
+                                <div className="habitado">Habitado: {u.habitado === "t" ? "Sí" : "No"}</div>
                             </div>
-                            <div>
-                                <h4>Dueños:</h4>
-                                {u.duenios && u.duenios.length > 0 ? (
-                                    u.duenios.map((duenio, index) => (
-                                        <div key={index} className="">
-                                            Documento: {duenio.documento} - Nombre: {duenio.nombre}
-                                        </div>
-                                    ))
-                                ) : (
-                                    <div className="">Sin dueños registrados</div>
-                                )}
-                            </div>
-                            <div>
+                            <div className="personas">
+                                <div>
+                                    <h4>dueño/s</h4>
+                                    {u.duenios && u.duenios.length > 0 ? (
+                                        u.duenios.map((duenio, index) => (
+                                            <div key={index} className="">
+                                                Documento: {duenio.documento} - Nombre: {duenio.nombre}
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <div className="">Sin dueños registrados</div>
+                                    )}
+                                </div>
+                                <div>
                                 <h4>Inquilinos:</h4>
                                 {u.inquilinos && u.inquilinos.length > 0 ? (
                                     u.inquilinos.map((inquilino, index) => (
@@ -68,18 +69,20 @@ export default function MostrarUnidades() {
                                 ) : (
                                     <div className="caja">Sin inquilinos registrados</div>
                                 )}
-                            </div>
-                            <div>
-                                <h4>Habitantes:</h4>
-                                {u.habitantes && u.habitantes.length > 0 ? (
-                                    u.habitantes.map((habitante, index) => (
-                                        <div key={index} className="caja">
-                                            Documento: {habitante.documento} - Nombre: {habitante.nombre}
-                                        </div>
-                                    ))
-                                ) : (
-                                    <div className="caja">Sin habitantes registrados</div>
-                                )}
+                                </div>
+                                
+                                <div>
+                                    <h4>Habitantes:</h4>
+                                    {u.habitantes && u.habitantes.length > 0 ? (
+                                        u.habitantes.map((habitante, index) => (
+                                            <div key={index} className="caja">
+                                                Documento: {habitante.documento} - Nombre: {habitante.nombre}
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <div className="caja">Sin habitantes registrados</div>
+                                    )}
+                                </div>
                             </div>
                         </div>
                         )}
