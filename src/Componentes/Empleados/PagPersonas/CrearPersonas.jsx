@@ -32,20 +32,20 @@ export default function CrearPersona() {
 
     return (
         <div>
-            <p>Agregar persona</p>
+            <p className='subtitulos'>Agregar persona</p>
             <form onSubmit={agregarPersona}>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Nombre:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Nombre:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={nombre}
                         onChange={(e) => setNombre(e.target.value)}

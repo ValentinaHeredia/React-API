@@ -30,11 +30,11 @@ export default function BorrarPersonas() {
 
     return (
         <div>
-            <p>Eliminar persona</p>
+            <p className='subtitulos'>Eliminar persona</p>
             <form onSubmit={eliminarPersona}>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}

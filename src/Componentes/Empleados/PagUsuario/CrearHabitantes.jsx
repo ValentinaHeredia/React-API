@@ -32,20 +32,20 @@ export default function CrearHabitante() {
 
     return (
         <div>
-            <p>Agregar Habitante</p>
+            <p className='subtitulos'>Agregar Habitante</p>
             <form onSubmit={agregarHabitante}>
-                <div>
-                    <label>ID:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>ID:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={id}
                         onChange={(e) => setId(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}

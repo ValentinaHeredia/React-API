@@ -32,20 +32,20 @@ export default function CrearInquilino() {
 
     return (
         <div>
-            <p>Agregar Inquilino</p>
+            <p className='subtitulos'>Agregar Inquilino</p>
             <form onSubmit={agregarInquilino}>
-                <div>
-                    <label>ID:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>ID:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={id}
                         onChange={(e) => setId(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}

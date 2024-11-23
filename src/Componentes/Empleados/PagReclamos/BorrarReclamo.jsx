@@ -27,11 +27,11 @@ export default function BorrarReclamo() {
 
     return (
         <div>
-            <h3>Eliminar Reclamo</h3>
+            <p className='subtitulos'>Eliminar Reclamo</p>
             <form onSubmit={eliminarReclamo}>
-                <div>
-                    <label>ID del Reclamo:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>ID del Reclamo:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={idReclamo}
                         onChange={(e) => setIdReclamo(e.target.value)}

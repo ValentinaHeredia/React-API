@@ -59,13 +59,17 @@ export default function ReclamoPorUnidad() {
 
     return (
         <div>
-            <input
-                type="search"
-                value={code}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                placeholder="Buscar reclamos por unidad"
-            />
+            <p className='subtitulos'>Buscar Reclamos por Unidad</p>
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Id del Reclamo:</div>
+                    <input className='inputFunciones'
+                        type="search"
+                        value={code}
+                        onChange={handleChange}
+                        onKeyDown={handleKeyDown}
+                        placeholder="Buscar reclamos por unidad"
+                    />
+                </div>
 
             {error && <p>{error}</p>}
 

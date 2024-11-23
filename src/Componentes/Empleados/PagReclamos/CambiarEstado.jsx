@@ -31,20 +31,20 @@ export default function CambiarEstado() {
 
     return (
         <div>
-            <h3>Cambiar Estado del Reclamo</h3>
+            <p className='subtitulos'>Cambiar Estado del Reclamo</p>
             <form onSubmit={cambiarEstado}>
-                <div>
-                    <label>ID del Reclamo:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>ID del Reclamo:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={idReclamo}
                         onChange={(e) => setIdReclamo(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Nuevo Estado:</label>
-                    <select
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Nuevo Estado:</div>
+                    <select className='inputFunciones'
                         value={nuevoEstado}
                         onChange={(e) => setNuevoEstado(e.target.value)}
                         required
@@ -57,9 +57,9 @@ export default function CambiarEstado() {
                         <option value="terminado">Terminado</option>
                     </select>
                 </div>
-                <div>
-                    <label>Medidas Tomadas:</label>
-                    <textarea
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Medidas Tomadas:</div>
+                    <textarea className='inputFunciones'
                         value={medidasTomadas}
                         onChange={(e) => setMedidasTomadas(e.target.value)}
                         placeholder="Describe las medidas tomadas..."

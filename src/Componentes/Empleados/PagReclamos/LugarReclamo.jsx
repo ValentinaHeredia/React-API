@@ -42,21 +42,25 @@ export default function DatosLugarReclamo() {
 
     return (
         <div>
-            <h2>Buscar Datos del Lugar de Reclamo</h2>
-            <input
-                type="text"
-                placeholder="Ingrese el ID del reclamo"
-                value={idReclamo}
-                onChange={(e) => setIdReclamo(e.target.value)}
-            />
+            <p className='subtitulos'>Buscar Datos del Lugar de Reclamo</p>
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>
+                        <input className='inputFunciones'
+                            type="text"
+                            placeholder="Ingrese el ID del reclamo"
+                            value={idReclamo}
+                            onChange={(e) => setIdReclamo(e.target.value)}
+                        />
+                    </div>
+                </div>
             <button className="botones" onClick={handleSearch}>Buscar</button>
 
             {error && <p>{error}</p>}
 
             {datosLugar && (
-                <div className="box-conteiner color">
-                    <div className="caja">Edificio: {datosLugar.edificio}</div>
-                    <div className="caja">Ubicación: {datosLugar.ubicacion}</div>
+                <div className="boxDatos">
+                    <div className="boxDato">Edificio: {datosLugar.edificio}</div>
+                    <div className="boxDato">Ubicación: {datosLugar.ubicacion}</div>
                 </div>
             )}
         </div>

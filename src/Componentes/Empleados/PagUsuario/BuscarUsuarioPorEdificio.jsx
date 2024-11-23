@@ -44,7 +44,7 @@ export default function BuscarUsuarioPorEdificio() {
         <div>
             <div>
                 <label htmlFor="codigoEdificio">Código de Edificio:</label>
-                <input
+                <input className='inputFunciones'
                     type="text"
                     id="codigoEdificio"
                     placeholder="Ingresa el código del edificio"

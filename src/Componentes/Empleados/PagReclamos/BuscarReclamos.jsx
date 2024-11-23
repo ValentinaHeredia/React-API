@@ -60,7 +60,7 @@ function BuscarReclamos() {
     return (
         <div>
         <label className="buscarLabel">Buscar</label>
-        <input
+        <input className='inputFunciones'
             type="search"
             value={code}
             onChange={handleChange}
@@ -72,20 +72,20 @@ function BuscarReclamos() {
 
         {reclamo && (
             <>
-                <div className="color">
-                    <div className="box-conteiner">
-                        <div className="caja">{reclamo.idReclamo}</div>
-                        <div className="caja">{reclamo.estado}</div>
-                        <div className="caja">{reclamo.fecha}</div>
+                <div>
+                    <div className="boxDatos">
+                        <div className="boxDato">{reclamo.idReclamo}</div>
+                        <div className="boxDato">{reclamo.estado}</div>
+                        <div className="boxDato">{reclamo.fecha}</div>
                     </div>
-                    <div className="box-conteiner">
-                        <div className="caja">Edificio: {reclamo.codigo}</div>
-                        <div className="caja">Unidad / Area comun: {reclamo.identificador}</div>
-                        <div className="caja">Persona: {reclamo.documento}</div>
-                        <div className="caja">tipo: {reclamo.tipoReclamo}</div>
+                    <div className="boxDatos">
+                        <div className="boxDato">Edificio: {reclamo.codigo}</div>
+                        <div className="boxDato">Unidad / Area comun: {reclamo.identificador}</div>
+                        <div className="boxDato">Persona: {reclamo.documento}</div>
+                        <div className="boxDato">tipo: {reclamo.tipoReclamo}</div>
                     </div>
-                    <div className="box-conteiner">
-                        <div className="caja">Descripcion: {reclamo.descripcion}</div>
+                    <div className="boxDatos">
+                        <div className="boxDato">Descripcion: {reclamo.descripcion}</div>
                     </div>
                 </div>
             </>

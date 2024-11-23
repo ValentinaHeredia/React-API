@@ -37,19 +37,20 @@ export default function BorrarDuenio() {
 
     return (
         <div>
+            <p className='subtitulos'>Eliminar dueño</p>
             <form onSubmit={eliminarDuenio}>
-                <div>
-                    <label>ID Unidad:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>ID Unidad:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={idUnidad}
                         onChange={(e) => setIdUnidad(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}

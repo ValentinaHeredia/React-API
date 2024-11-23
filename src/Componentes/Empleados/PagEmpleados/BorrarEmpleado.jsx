@@ -30,11 +30,11 @@ export default function BorrarEmpleado() {
 
     return (
         <div>
-            <p>Eliminar empleado</p>
+            <p className='subtitulos'>Eliminar empleado</p>
             <form onSubmit={eliminarEmpleado}>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}

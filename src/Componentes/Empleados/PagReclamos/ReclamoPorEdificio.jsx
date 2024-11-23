@@ -59,13 +59,17 @@ export default function ReclamoPorEdificio() {
 
     return (
         <div>
-            <input
-                type="search"
-                value={code}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                placeholder="Buscar reclamos por edificio"
-            />
+            <p className='subtitulos'>Buscar Reclamos por Edificio</p>
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Id del Reclamo:</div>
+                    <input className='inputFunciones'
+                        type="search"
+                        value={code}
+                        onChange={handleChange}
+                        onKeyDown={handleKeyDown}
+                        placeholder="Buscar reclamos por edificio"
+                    />
+                </div>
 
             {error && <p>{error}</p>}
 

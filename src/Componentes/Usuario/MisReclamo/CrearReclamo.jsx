@@ -35,46 +35,46 @@ export default function CrearReclamo() {
 
     return (
         <div>
-            <h3>Crear Reclamo para Unidad</h3>
+            <p className='subtitulos'>Crear Reclamo</p>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Documento del Usuario:</label>
-                    <input
+                <div className="divInputFunciones">
+                    <div className="divFuncionesMR">Documento del Usuario:</div>
+                    <input className="inputFunciones"
                         type="text"
                         value={documentoUsuario}
                         onChange={(e) => setDocumentoUsuario(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Código del Edificio:</label>
-                    <input
+                <div className="divInputFunciones">
+                    <div className="divFuncionesMR">Código del Edificio:</div>
+                    <input className="inputFunciones"
                         type="text"
                         value={codigoEdificio}
                         onChange={(e) => setCodigoEdificio(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>ID de la Unidad:</label>
-                    <input
+                <div className="divInputFunciones">
+                    <div className="divFuncionesMR">ID de la Unidad:</div>
+                    <input className="inputFunciones"
                         type="text"
                         value={idUnidad}
                         onChange={(e) => setIdUnidad(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Descripción:</label>
-                    <textarea
+                <div className="">
+                    <div className="divDescripcion">Descripción:</div>
+                    <textarea className="inputDescripcion"
                         value={descripcion}
                         onChange={(e) => setDescripcion(e.target.value)}
                         required
                     ></textarea>
                 </div>
-                <div>
-                    <label>Tipo de Reclamo:</label>
-                    <select
+                <div className="divInputFunciones">
+                    <div className="divFuncionesMR">Tipo de Reclamo:</div>
+                    <select className="selectReclamo"
                         value={tipoReclamo}
                         onChange={(e) => setTipoReclamo(e.target.value)}
                         required
@@ -89,7 +89,7 @@ export default function CrearReclamo() {
                         <option value="mantenimiento_de_bombas">Mantenimiento de Bombas</option>
                     </select>
                 </div>
-                <button type="submit">Crear Reclamo</button>
+                <button className="botones" type="submit">Crear Reclamo</button>
             </form>
 
             {mensaje && <p>{mensaje}</p>}

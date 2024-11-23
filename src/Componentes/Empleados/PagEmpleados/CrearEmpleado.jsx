@@ -32,27 +32,27 @@ export default function CrearEmpleado() {
 
     return (
         <div>
-            <p>Agregar empleado</p>
+            <p className='subtitulos'>Agregar empleado</p>
             <form onSubmit={agregarEmpleado}>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input  className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Contraseña:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Contraseña:</div>
+                    <input  className='inputFunciones'
                         type="password"
                         value={contrasenia}
                         onChange={(e) => setContrasenia(e.target.value)}
                         required
                     />
                 </div>
-                <button type="submit">Agregar</button>
+                <button className='botones' type="submit">Agregar</button>
             </form>
             {mensaje && <p>{mensaje}</p>}
         </div>

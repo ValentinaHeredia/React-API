@@ -37,20 +37,20 @@ export default function BorrarInquilino() {
 
     return (
         <div>
-            <p>Eliminar inquilino</p>
+            <p className='subtitulos'>Eliminar inquilino</p>
             <form onSubmit={eliminarInquilino}>
-                <div>
-                    <label>ID de Unidad:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>ID de Unidad:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={idUnidad}
                         onChange={(e) => setIdUnidad(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}

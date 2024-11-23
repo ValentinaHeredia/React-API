@@ -30,11 +30,11 @@ export default function BorrarHabitante() {
 
     return (
         <div>
-            <p>Eliminar habitante</p>
+            <p className='subtitulos'>Eliminar habitante</p>
             <form onSubmit={eliminarHabitante}>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}

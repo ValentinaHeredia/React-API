@@ -14,29 +14,28 @@ import ReclamosPorPersona from "./ReclamosPersona";
 export default function Reclamos(){
     return(
         <div>
-            <h1>Reclamos</h1>
-            <BuscarReclamos/>
-            <p>Buscar por Edificio</p>
-            <ReclamoPorEdificio/>
-            <p>Buscar por Unidad</p>
-            <ReclamoPorUnidad/>
-            <p>Reclamos por Persona</p>
-            <ReclamosPorPersona/>
-            <p>Lugar Reclamo</p>
-            <LugarReclamo/>
-            <p>Borrar reclamo</p>
-            <BorrarReclamo/>
-            <p>Cambiar estado</p>
-            <CambiarEstado/>
-            <p>Obtener reclamos por estado</p>
-            <ObtenerReclamoEstado/>
-            <p>Obtener reclamos por tipo de reclamos</p>
-            <ObtenerReclamosPorTipo/>
-            <p>Obtener reclamos por rango de fecha</p>
-            <ObtenerReclamosPorRangoFechas/>
-            <p>Obtener reclamos area comun por Edificio</p>
-            <ObtenerReclamoACporEdificio/>
-            <MostrarReclamos/>
+            <div className="container">
+                <div className="buscarGrid">
+                    <BuscarReclamos/>
+                </div>
+                <div className="funcionesGrid">
+                    <div className="funciones">
+                        <ReclamoPorEdificio/>
+                        <ReclamoPorUnidad/>
+                        <ReclamosPorPersona/>
+                        <LugarReclamo/>
+                        <BorrarReclamo/>
+                        <CambiarEstado/>
+                        <ObtenerReclamoEstado/>
+                        <ObtenerReclamosPorTipo/>
+                        <ObtenerReclamosPorRangoFechas/>
+                        <ObtenerReclamoACporEdificio/>
+                    </div>
+                </div>
+                <div className="resultadosGrid">
+                    <MostrarReclamos/> 
+                </div>
+            </div>
         </div>
     )
 }

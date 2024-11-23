@@ -32,20 +32,20 @@ export default function CrearUsuario() {
 
     return (
         <div>
-        <p>Agregar usuario</p>
+        <p className='subtitulos'>Agregar usuario</p>
         <form onSubmit={agregarUsuario}>
-            <div>
-            <label>Documento:</label>
-            <input
+            <div className='divInputFunciones'>
+            <div className='divFunciones'>Documento:</div>
+            <input className='inputFunciones'
                 type="text"
                 value={documento}
                 onChange={(e) => setDocumento(e.target.value)}
                 required
             />
             </div>
-            <div>
-            <label>Contraseña:</label>
-            <input
+            <div className='divInputFunciones'>
+            <div className='divFunciones'>Contraseña:</div>
+            <input className='inputFunciones'
                 type="password"
                 value={contrasenia}
                 onChange={(e) => setContrasenia(e.target.value)}

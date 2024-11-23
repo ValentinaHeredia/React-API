@@ -43,10 +43,10 @@ export default function ObtenerReclamoACporEdificio() {
 
     return (
         <div>
-            <h3>Obtener Reclamos de Área Común por Edificio</h3>
-            <div>
-                <label htmlFor="codigoEdificio">Código del Edificio:</label>
-                <input
+            <p className='subtitulos'>Obtener Reclamos de Área Común por Edificio</p>
+            <div className='divInputFunciones'>
+                <div className='divFunciones'>Código del Edificio:</div>
+                <input className='inputFunciones'
                     type="text"
                     id="codigoEdificio"
                     placeholder="Ej: 101"

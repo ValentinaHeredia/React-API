@@ -6,11 +6,21 @@ import MostrarPersonas from "./MostrarPersonas";
 export default function Personas(){
     return(
         <div>
-            <BuscarPersona/>
-            <h1>Personas</h1>
-            <CrearPersona/>
-            <BorrarPersonas/>
-            <MostrarPersonas/>
+            <div className="container">
+                <div className="buscarGrid">
+                    <BuscarPersona />
+                </div>
+                <div className="funcionesGrid">
+                    <div className="funciones">
+                        <h1>Edificios</h1>
+                        <CrearPersona/>
+                        <BorrarPersonas/>
+                    </div>
+                </div>
+                <div className="resultadosGrid">
+                    <MostrarPersonas/> 
+                </div>
+            </div>
         </div>
     )
 }

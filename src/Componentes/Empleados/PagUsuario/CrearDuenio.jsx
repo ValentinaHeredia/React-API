@@ -32,20 +32,20 @@ export default function CrearDuenio() {
 
     return (
         <div>
-            <p>Agregar Dueño</p>
+            <p className='subtitulos'>Agregar Dueño</p>
             <form onSubmit={agregarDuenio}>
-                <div>
-                    <label>Código:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Código:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={codigo}
                         onChange={(e) => setCodigo(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}

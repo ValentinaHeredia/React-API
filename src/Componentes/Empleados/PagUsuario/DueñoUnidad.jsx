@@ -34,12 +34,16 @@ export default function BuscarDuenioUnidad() {
 
     return (
         <div>
-            <input
-                type="search"
-                placeholder="ID unidad"
-                value={idUnidad}
-                onChange={(e) => setIdUnidad(e.target.value)}
-            />
+            <p className='subtitulos'>Dueños por unidad</p>
+            <div className='divInputFunciones'>
+                <div className='divFunciones'>Codigo:</div>
+                <input className='inputFunciones'
+                    type="search"
+                    placeholder="ID unidad"
+                    value={idUnidad}
+                    onChange={(e) => setIdUnidad(e.target.value)}
+                />
+            </div>
             <button className="botones" onClick={handleSearch}>Buscar</button>
 
             {error && <p>{error}</p>}

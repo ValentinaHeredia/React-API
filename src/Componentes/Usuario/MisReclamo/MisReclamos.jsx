@@ -5,9 +5,17 @@ import MostrarMisReclamos from "./MostrarMisReclamo";
 export default function MisReclamos(){
     return(
         <div>
-            <CrearReclamo/>
-            <CrearReclamoAreaComun/>
-            <MostrarMisReclamos/>
+            <div className="container">
+                <div className="funcionesGridPersonas">
+                    <div className="funciones">
+                        <CrearReclamo/>
+                        <CrearReclamoAreaComun/>
+                    </div>
+                </div>
+                <div className="resultadosGridPersonas">
+                    <MostrarMisReclamos/>
+                </div>
+            </div>
         </div>
     )
 }

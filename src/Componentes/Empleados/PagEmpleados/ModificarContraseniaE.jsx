@@ -32,20 +32,20 @@ export default function ModificarContraseniaE() {
 
     return (
         <div>
-            <p>Modificar contraseña del empleado</p>
+            <p className='subtitulos'>Modificar contraseña del empleado</p>
             <form onSubmit={modificarContrasenia}>
-                <div>
-                    <label>Documento:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Documento:</div>
+                    <input className='inputFunciones'
                         type="text"
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Nueva Contraseña:</label>
-                    <input
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'>Nueva Contraseña:</div>
+                    <input className='inputFunciones'
                         type="password"
                         value={contrasenia}
                         onChange={(e) => setContrasenia(e.target.value)}

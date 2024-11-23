@@ -41,12 +41,11 @@ export default function BuscarPersona() {
     return (
         <div>
             <label className="buscarLabel">Buscar</label>
-            <input
+            <input className='inputFunciones'
                 type="search"
                 placeholder="Ingrese el documento"
                 value={searchTerm}
                 onChange={handleChange}
-                className="inputFunciones"
             />
             {error && <p>{error}</p>}
             {persona && (

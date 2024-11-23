@@ -45,12 +45,16 @@ function BuscarInquilinosPorUnidad() {
 
     return (
         <div>
-        <input
-            type="search"
-            value={idUnidad}
-            onChange={handleChange}
-            placeholder="Ingresa el ID de la unidad"
-        />
+            <p className='subtitulos'>Inquilinos por unidad</p>
+            <div className='divInputFunciones'>
+                <div className='divFunciones'>Codigo:</div>
+                <input className='inputFunciones'
+                    type="search"
+                    value={idUnidad}
+                    onChange={handleChange}
+                    placeholder="Ingresa el ID de la unidad"
+                />
+            </div>
         {error && <p>{error}</p>}
         {inquilinos.length > 0 && (
             <ul>

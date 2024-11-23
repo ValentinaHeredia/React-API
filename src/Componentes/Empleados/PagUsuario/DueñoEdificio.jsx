@@ -41,16 +41,19 @@ function BuscarDueniosEdificio() {
 
     return (
         <div>
-            <input
-                type="search"
-                value={codigo}
-                onChange={handleChange}
-                onKeyDown={handleKeyDown}
-                placeholder="Ingresa el código del edificio"
-            />
-
+            <p className='subtitulos'>Dueños por edificio</p>
+            <div className='divInputFunciones'>
+                <div className='divFunciones'>Codigo:</div>
+                <input className='inputFunciones'
+                    type="search"
+                    value={codigo}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Ingresa el código del edificio"
+                />
+            </div>
+            
             {error && <p>{error}</p>}
-
             {duenios.length > 0 && (
                 <ul>
                     {duenios.map((duenio) => (

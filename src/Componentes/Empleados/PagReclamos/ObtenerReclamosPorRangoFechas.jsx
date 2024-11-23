@@ -44,10 +44,10 @@ export default function ObtenerReclamosPorRangoFechasTiempoReal() {
 
     return (
         <div>
-            <h3>Obtener Reclamos por Rango de Fechas</h3>
-            <div>
-                <label htmlFor="fechaInicio">Fecha Inicio:</label>
-                <input
+            <p className='subtitulos'>Obtener Reclamos por Rango de Fechas</p>
+            <div className='divInputFunciones'>
+                <div className='divFunciones' htmlFor="fechaInicio">Fecha Inicio:</div>
+                <input className='inputFunciones'
                     type="text"
                     id="fechaInicio"
                     placeholder="Ej: 01-01-24"
@@ -55,9 +55,9 @@ export default function ObtenerReclamosPorRangoFechasTiempoReal() {
                     onChange={(e) => setFechaInicio(e.target.value)}
                 />
             </div>
-            <div>
-                <label htmlFor="fechaFin">Fecha Fin:</label>
-                <input
+            <div className='divInputFunciones'>
+                <div className='divFunciones' htmlFor="fechaFin">Fecha Fin:</div>
+                <input className='inputFunciones'
                     type="text"
                     id="fechaFin"
                     placeholder="Ej: 03-01-24"

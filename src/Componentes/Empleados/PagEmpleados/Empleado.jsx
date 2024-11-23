@@ -7,16 +7,22 @@ import MostrarEmpleados from "./MostrarEmpleados";
 export default function Empleado(){
     return(
         <div>
-            <h1>Empleados</h1>
-            <BuscarEmpleado />
-            <br/>
-            <CrearEmpleado/>
-            <br/>
-            <BorrarEmpleado/>
-            <br/>
-            <ModificarContraseniaE/>
-            <br/>
-            <MostrarEmpleados/>
+            <div className="container">
+            <div className="buscarGrid">
+                    <BuscarEmpleado />
+                </div>
+                <div className="funcionesGrid">
+                    <div className="funciones">
+                        <h1>Edificios</h1>
+                        <CrearEmpleado/>
+                        <BorrarEmpleado/>
+                        <ModificarContraseniaE/>
+                    </div>
+                </div>
+                <div className="resultadosGrid">
+                    <MostrarEmpleados/> 
+                </div>
+            </div>
         </div>
     )
 }

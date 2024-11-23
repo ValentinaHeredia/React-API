@@ -223,3 +223,74 @@
     height: 30px;
     background-color: #F3F3F3;
 }
+
+
+/*PERSONAS*/
+.funcionesGridPersonas{
+    grid-column: 2/4;
+    grid-row: 1/4;
+}
+
+.resultadosGridPersonas{
+    grid-column: 5/13;
+    grid-row: 1/5;
+}
+
+/*MIS RECLAMOS*/
+.inputFuncionesMR{
+    background-color: #D9D9D9;
+    border:none;
+    border-radius: 5px;
+    width: 45%;
+    margin: 5px 0px 5px 0px;
+    padding-left: 10px;
+    height: 25px;
+}
+.divFuncionesMR{
+    width: 35%;
+    text-align: end;
+    margin: 5px 5px 5px 0px;
+}
+
+.divDescripcion{
+    text-align: center;
+    margin: 5px 5px 5px 0px;
+}
+
+.inputDescripcion{
+    width: 100%;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    margin: 0px 5px 5px 0px;
+}
+
+.selectReclamo{
+    border: none;
+    border-radius: 10px;
+    width: 45%;
+    height: 30px;
+    background-color: #D9D9D9;
+}
+
+.divMostrarRaclamo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 10px 0px 10px;
+    background-color: #D9D9D9;
+    width: 1000px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.detalleExtraMR{
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+    margin: 0px 10px 0px 10px;
+    padding: 10px;
+    background-color: #EBEBEB;
+    border-radius: 5px;
+}

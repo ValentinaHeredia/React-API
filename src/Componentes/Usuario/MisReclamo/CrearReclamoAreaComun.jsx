@@ -35,29 +35,29 @@ export default function CrearReclamoAreaComun() {
 
     return (
         <div>
-            <h3>Crear Reclamo de Área Común</h3>
+            <p className="subtitulos">Crear Reclamo de Área Común</p>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Documento del Usuario:</label>
-                    <input
+                <div className="divInputFunciones">
+                    <div className="divFunciones">Documento del Usuario:</div>
+                    <input className="inputFunciones"
                         type="text"
                         value={documentoUsuario}
                         onChange={(e) => setDocumentoUsuario(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Código del Edificio:</label>
-                    <input
+                <div className="divInputFunciones">
+                    <div className="divFunciones">Código del Edificio:</div>
+                    <input className="inputFunciones"
                         type="text"
                         value={codigoEdificio}
                         onChange={(e) => setCodigoEdificio(e.target.value)}
                         required
                     />
                 </div>
-                <div>
-                    <label>Ubicación:</label>
-                    <input
+                <div className="divInputFunciones">
+                    <div className="divFunciones">Ubicación:</div>
+                    <input className="inputFunciones"
                         type="text"
                         value={ubicacion}
                         onChange={(e) => setUbicacion(e.target.value)}
@@ -65,16 +65,16 @@ export default function CrearReclamoAreaComun() {
                     />
                 </div>
                 <div>
-                    <label>Descripción:</label>
-                    <textarea
+                    <div className="divDescripcion">Descripción:</div>
+                    <textarea className="inputDescripcion"
                         value={descripcion}
                         onChange={(e) => setDescripcion(e.target.value)}
                         required
                     ></textarea>
                 </div>
-                <div>
-                    <label>Tipo de Reclamo:</label>
-                    <select
+                <div className="divInputFunciones">
+                    <div className="divFunciones">Tipo de Reclamo:</div>
+                    <select className="selectReclamo"
                         value={tipoReclamo}
                         onChange={(e) => setTipoReclamo(e.target.value)}
                         required
@@ -89,7 +89,7 @@ export default function CrearReclamoAreaComun() {
                         <option value="mantenimiento_de_bombas">Mantenimiento de Bombas</option>
                     </select>
                 </div>
-                <button type="submit">Crear Reclamo</button>
+                <button className="botones" type="submit">Crear Reclamo</button>
             </form>
 
             {mensaje && <p>{mensaje}</p>}

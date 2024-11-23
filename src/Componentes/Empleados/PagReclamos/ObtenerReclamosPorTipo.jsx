@@ -55,19 +55,19 @@ export default function ObtenerReclamosPorTipoCheckbox() {
 
     return (
         <div>
-            <h3>Obtener Reclamos por Tipo</h3>
+            <p className='subtitulos'>Obtener Reclamos por Tipo</p>
             <div>
                 <p>Selecciona un tipo de reclamo:</p>
                 {tiposDeReclamo.map((tipo) => (
                     <div key={tipo}>
-                        <label>
-                            <input
-                                type="checkbox"
-                                checked={tipoReclamo === tipo}
-                                onChange={() => handleCheckboxChange(tipo)}
-                            />
-                            {tipo.charAt(0).toUpperCase() + tipo.slice(1).replace(/_/g, ' ')}
-                        </label>
+                        <div></div>
+                        <input
+                            type="checkbox"
+                            checked={tipoReclamo === tipo}
+                            onChange={() => handleCheckboxChange(tipo)}
+                        />
+                        {tipo.charAt(0).toUpperCase() + tipo.slice(1).replace(/_/g, ' ')}
+                        
                     </div>
                 ))}
             </div>

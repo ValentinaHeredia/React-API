@@ -32,14 +32,17 @@ export default function ReclamosPorPersona() {
 
     return (
         <div>
-            <h2>Buscar Reclamos por Persona</h2>
-            <input
-                type="search"
-                placeholder="Ingrese el documento (ej: 31507343)"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button onClick={handleSearch}>Buscar</button>
+            <p className='subtitulos'>Buscar Reclamos por Persona</p>
+                <div className='divInputFunciones'>
+                    <div className='divFunciones'></div>
+                    <input className='inputFunciones'
+                        type="search"
+                        placeholder="Ingrese el documento (ej: 31507343)"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
+            <button className='botones' onClick={handleSearch}>Buscar</button>
             {error && <p>{error}</p>}
             {reclamos.length > 0 ? (
                 <div>

@@ -5,6 +5,7 @@ function MostrarMisReclamos() {
     const { userDocument } = useAuth();
     const [reclamos, setReclamos] = useState([]);
     const [error, setError] = useState(null);
+    const [detallesVisibles, setDetallesVisibles] = useState({}); // Estado para controlar la visibilidad
 
     useEffect(() => {
         if (userDocument) {
@@ -20,6 +21,13 @@ function MostrarMisReclamos() {
         }
     }, [userDocument]);
 
+    const toggleDetalle = (idReclamo) => {
+        setDetallesVisibles((prev) => ({
+            ...prev,
+            [idReclamo]: !prev[idReclamo], // Alterna la visibilidad del detalle correspondiente
+        }));
+    };
+
     if (error) {
         return <p style={{ color: 'red' }}>Error: {error}</p>;
     }
@@ -28,29 +36,38 @@ function MostrarMisReclamos() {
         <div>
             <h2>Mis Reclamos</h2>
             {reclamos.length > 0 ? (
-                <ul>
-                    {reclamos.map((reclamo) => (
-                        <li key={reclamo.idReclamo}>
-                            <strong>ID Reclamo:</strong> {reclamo.idReclamo} <br />
-                            <strong>Documento:</strong> {reclamo.documento} <br />
-                            <strong>Código:</strong> {reclamo.codigo} <br />
-                            <strong>Ubicación:</strong> {reclamo.ubicacion} <br />
-                            <strong>Identificador:</strong> {reclamo.identificador} <br />
-                            <strong>Descripción:</strong> {reclamo.descripcion} <br />
-                            <strong>Estado:</strong> {reclamo.estado} <br />
-                            <strong>Tipo de Reclamo:</strong> {reclamo.tipoReclamo} <br />
-                            <strong>Medidas Tomadas:</strong> {reclamo.medidasTomadas} <br />
-                            <strong>Fecha:</strong> {reclamo.fecha} <br />
-                            <hr />
-                        </li>
-                    ))}
-                </ul>
+                reclamos.map((reclamo) => (
+                    <div key={reclamo.idReclamo}>
+                        <div className="divMostrarRaclamo">
+                            <div className="boxDatoUnidad">Reclamo {reclamo.idReclamo}</div>
+                            <button
+                                onClick={() => toggleDetalle(reclamo.idReclamo)}
+                                className="btnDetalle botonDetalle"
+                            >
+                                {detallesVisibles[reclamo.idReclamo] ? "Ocultar Detalle" : "Mostrar Detalle"}
+                            </button>
+                        </div>
+                        {detallesVisibles[reclamo.idReclamo] && (
+                        <div className="detalleExtraMR">
+                            <p><strong>Documento:</strong> {reclamo.documento}</p>
+                            <p><strong>Código:</strong> {reclamo.codigo}</p>
+                            <p><strong>Ubicación:</strong> {reclamo.ubicacion}</p>
+                            <p><strong>Identificador:</strong> {reclamo.identificador}</p>
+                            <p><strong>Descripción:</strong> {reclamo.descripcion}</p>
+                            <p><strong>Estado:</strong> {reclamo.estado}</p>
+                            <p><strong>Tipo de Reclamo:</strong> {reclamo.tipoReclamo}</p>
+                            <p><strong>Medidas Tomadas:</strong> {reclamo.medidasTomadas}</p>
+                            <p><strong>Fecha:</strong> {reclamo.fecha}</p>
+                        </div>
+                        )}
+                        <hr />
+                    </div>
+                ))
             ) : (
                 <p>No hay reclamos registrados.</p>
             )}
         </div>
     );
-    
 }
 
 export default MostrarMisReclamos;

@@ -30,11 +30,11 @@ export default function BorrarUsuario() {
 
     return (
         <div>
-        <p>Eliminar usuario</p>
+        <p className='subtitulos'>Eliminar usuario</p>
         <form onSubmit={eliminarUsuario}>
-            <div>
-            <label>Documento:</label>
-            <input
+            <div className='divInputFunciones'>
+            <div className='divFunciones'>Documento:</div>
+            <input className='inputFunciones'
                 type="text"
                 value={documento}
                 onChange={(e) => setDocumento(e.target.value)}

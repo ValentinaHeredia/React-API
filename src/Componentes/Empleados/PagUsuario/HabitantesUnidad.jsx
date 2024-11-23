@@ -32,12 +32,16 @@ export default function BuscarHabitantesUnidad() {
 
     return (
         <div>
-            <input
-                type="search"
-                placeholder="Ingrese el ID de la unidad (ej: 101)"
-                value={unidadId}
-                onChange={(e) => setUnidadId(e.target.value)}
-            />
+            <p className='subtitulos'>Habitantes por unidad</p>
+            <div className='divInputFunciones'>
+                <div className='divFunciones'>Codigo:</div>
+                <input className='inputFunciones'
+                    type="search"
+                    placeholder="Ingrese el ID de la unidad (ej: 101)"
+                    value={unidadId}
+                    onChange={(e) => setUnidadId(e.target.value)}
+                />
+            </div>
             <button className="botones" onClick={handleSearch}>Buscar</button>
             {error && <p>{error}</p>}
             {habitantes.length > 0 && (
