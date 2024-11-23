@@ -15,6 +15,7 @@ import Usuario from './Componentes/Empleados/PagUsuario/Usuario';
 import Empleado from './Componentes/Empleados/PagEmpleados/Empleado';
 import MisReclamos from './Componentes/Usuario/MisReclamo/MisReclamos';
 import ReclamosGenerales from './Componentes/Usuario/ReclamosGenerales/ReclamosGenerales';
+import CrearReclamo from './Componentes/Usuario/CrearReclamos/crearReclamos';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           >
             <Route path="MisReclamos" element={<MisReclamos />} />
             <Route path="ReclamosGenerales" element={<ReclamosGenerales />} />
+            <Route path="CrearReclamos" element={<CrearReclamo />} />
           </Route>
 
           <Route

@@ -7,6 +7,7 @@ export default function UsuariosV(){
             <ul className='navbarContenedor'>
                 <li className='navbar'><Link to="MisReclamos" className='links'>Mis Reclamos</Link></li>
                 <li className='navbar'><Link to="ReclamosGenerales" className='links'>Reclamos Generales</Link></li>
+                <li className='navbar'><Link to="CreaReclamos" className='links'>Crear Reclamos</Link></li>
             </ul>
         </nav>
         <Outlet />

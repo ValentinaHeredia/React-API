@@ -294,3 +294,28 @@
     background-color: #EBEBEB;
     border-radius: 5px;
 }
+
+.inputDescripcionCR{
+    width: 45%;
+    height: 100px;
+    border-radius: 10px;
+    margin: 0px 5px 5px 0px;
+}
+
+.divTextDescripcion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divFuncionesCR{
+    width: 35%;
+    text-align: end;
+    margin: 5px 5px 5px 0px;
+}
+
+.CR{
+    grid-column: 4/7;
+    grid-row: 1;
+}
