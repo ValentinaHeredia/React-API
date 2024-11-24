@@ -30,7 +30,7 @@ export default function BorrarUnidad() {
             <p className='subtitulos'>Eliminar Unidad</p>
             <form onSubmit={eliminarUnidad}>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>Unidad ID</div>
+                    <div className='divFunciones'>ID Unidad:</div>
                     <input className='inputFunciones'
                         type="text"
                         value={id}

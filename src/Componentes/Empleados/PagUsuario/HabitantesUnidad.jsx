@@ -4,18 +4,32 @@ export default function BuscarHabitantesUnidad() {
     const [unidadId, setUnidadId] = useState("");
     const [habitantes, setHabitantes] = useState([]);
     const [error, setError] = useState("");
+    const [debounceTimeout, setDebounceTimeout] = useState(null);
 
-    const handleSearch = async () => {
-        if (!unidadId.trim()) {
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setUnidadId(value);
+
+        if (debounceTimeout) clearTimeout(debounceTimeout);
+
+        setDebounceTimeout(
+            setTimeout(() => {
+                buscarHabitantes(value.trim());
+            }, 500)
+        );
+    };
+
+    const buscarHabitantes = async (idUnidad) => {
+        if (!idUnidad) {
             setError("Por favor, ingrese un ID de unidad válido.");
             setHabitantes([]);
             return;
         }
 
         try {
-            setError(""); // Limpiar errores previos
+            setError("");
             const response = await fetch(
-                `http://localhost:8081/api/unidades/habitantesPorUnidad/${unidadId}`
+                `http://localhost:8081/api/unidades/habitantesPorUnidad/${idUnidad}`
             );
 
             if (!response.ok) {
@@ -23,35 +37,36 @@ export default function BuscarHabitantesUnidad() {
             }
 
             const data = await response.json();
-            setHabitantes(data); // Guardar los datos obtenidos
+            setHabitantes(data);
         } catch (err) {
-            setError(err.message); // Mostrar el mensaje de error
-            setHabitantes([]); // Limpiar datos previos
+            setError(err.message);
+            setHabitantes([]);
         }
     };
 
     return (
         <div>
-            <p className='subtitulos'>Habitantes por unidad</p>
-            <div className='divInputFunciones'>
-                <div className='divFunciones'>ID Unidad:</div>
-                <input className='inputFunciones'
+            <p className="subtitulos">Habitantes por unidad</p>
+            <div className="divInputFunciones">
+                <div className="divFunciones">ID Unidad:</div>
+                <input
+                    className="inputFunciones"
                     type="search"
-                    placeholder="Ingrese el ID de la unidad (ej: 101)"
+                    placeholder=""
                     value={unidadId}
-                    onChange={(e) => setUnidadId(e.target.value)}
+                    onChange={handleInputChange}
                 />
             </div>
-            <button className="botones" onClick={handleSearch}>Buscar</button>
             {error && <p>{error}</p>}
             {habitantes.length > 0 && (
                 <div>
-                    <h3>Habitantes encontrados:</h3>
                     <ul>
                         {habitantes.map((habitante) => (
-                            <li key={habitante.id}>
-                                {habitante.nombre} (Documento: {habitante.documento})
-                            </li>
+                            <div key={habitante.id}>
+                                <div>{habitante.nombre}</div>
+                                <div>{habitante.documento}</div>
+                                <hr />
+                            </div>
                         ))}
                     </ul>
                 </div>

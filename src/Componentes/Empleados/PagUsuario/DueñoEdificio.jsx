@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+let debounceTimeout;
 
 function BuscarDueniosEdificio() {
     const [codigo, setCodigo] = useState('');
@@ -6,18 +8,21 @@ function BuscarDueniosEdificio() {
     const [error, setError] = useState(null);
 
     const handleChange = (event) => {
-        setCodigo(event.target.value);
-    };
+        const value = event.target.value;
+        setCodigo(value);
 
-    const handleKeyDown = async (event) => {
-        if (event.key === 'Enter') {
-            await buscarDuenios(codigo.trim());
-        }
+        // Limpiar cualquier timeout previo para evitar múltiples solicitudes
+        clearTimeout(debounceTimeout);
+
+        // Agregar un pequeño retraso antes de realizar la búsqueda
+        debounceTimeout = setTimeout(() => {
+            buscarDuenios(value.trim());
+        }, 500); // 500 ms de retraso
     };
 
     const buscarDuenios = async (codigo) => {
         if (!codigo) {
-            setError("El código del edificio no puede estar vacío.");
+            setError(null); // Limpiar errores cuando no hay código
             setDuenios([]);
             return;
         }
@@ -43,16 +48,15 @@ function BuscarDueniosEdificio() {
         <div>
             <p className='subtitulos'>Dueños por edificio</p>
             <div className='divInputFunciones'>
-                <div className='divFunciones'>Codigo:</div>
+                <div className='divFunciones'>Código:</div>
                 <input className='inputFunciones'
                     type="search"
                     value={codigo}
                     onChange={handleChange}
-                    onKeyDown={handleKeyDown}
                     placeholder="Ingresa el código del edificio"
                 />
             </div>
-            
+
             {error && <p>{error}</p>}
             {duenios.length > 0 && (
                 <ul>

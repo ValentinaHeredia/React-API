@@ -65,22 +65,22 @@ export default function CrearReclamo() {
                 </div>
             ) : (
                 <>
-                    {!tipoReclamoSeleccionado ? (
-                        <div>
-                            <p className="subtitulos">Seleccione el tipo de reclamo</p>
-                            <select
-                                className="selectReclamo"
-                                value={tipoReclamoSeleccionado}
-                                onChange={(e) => setTipoReclamoSeleccionado(e.target.value)}
-                            >
-                                <option value="">Seleccione una opción</option>
-                                <option value="unidad">Reclamo de Unidad</option>
-                                <option value="areaComun">Reclamo de Área Común</option>
-                            </select>
-                        </div>
-                    ) : (
+                    <div className="divSelectReclamo">
+                        <div className="subtitulos divElegirReclamo">Seleccione el tipo de reclamo</div>
+                        <select
+                            className="ElegirReclamo"
+                            value={tipoReclamoSeleccionado}
+                            onChange={(e) => setTipoReclamoSeleccionado(e.target.value)}
+                        >
+                            <option value="">Seleccione una opción</option>
+                            <option value="unidad">Reclamo de Unidad</option>
+                            <option value="areaComun">Reclamo de Área Común</option>
+                        </select>
+                    </div>
+    
+                    {tipoReclamoSeleccionado && (
                         <form onSubmit={handleSubmit}>
-                            <p className="subtitulos">
+                            <p className="subtitulos alinearSubtitulo">
                                 {tipoReclamoSeleccionado === "unidad" ? "Crear Reclamo de Unidad" : "Crear Reclamo de Área Común"}
                             </p>
                             <div className="divInputFunciones">
@@ -127,15 +127,6 @@ export default function CrearReclamo() {
                                     />
                                 </div>
                             )}
-                            <div className="divTextDescripcion">
-                                <div className="divDescripcion">Descripción:</div>
-                                <textarea
-                                    className="inputDescripcionCR"
-                                    value={descripcion}
-                                    onChange={(e) => setDescripcion(e.target.value)}
-                                    required
-                                ></textarea>
-                            </div>
                             <div className="divInputFunciones">
                                 <div className="divFunciones">Tipo de Reclamo:</div>
                                 <select
@@ -154,6 +145,16 @@ export default function CrearReclamo() {
                                     <option value="mantenimiento_de_bombas">Mantenimiento de Bombas</option>
                                 </select>
                             </div>
+                            <div className="divTextDescripcion">
+                                <div className="divDescripcion">Descripción:</div>
+                                <textarea
+                                    className="inputDescripcionCR"
+                                    value={descripcion}
+                                    onChange={(e) => setDescripcion(e.target.value)}
+                                    required
+                                ></textarea>
+                            </div>
+    
                             <button className="botones" type="submit">
                                 Crear Reclamo
                             </button>
@@ -163,4 +164,5 @@ export default function CrearReclamo() {
             )}
         </div>
     );
+    
 }

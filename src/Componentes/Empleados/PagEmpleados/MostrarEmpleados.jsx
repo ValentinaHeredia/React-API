@@ -21,8 +21,8 @@ export default function MostrarEmpleados(){
                     empleadosList.map( (e) => (
                         <div>
                             <div className="boxDatos">
-                                <div className="boxDato">Nombre: {e.persona.nombre}</div>
-                                <div className="boxDato">Documento: {e.persona.documento}</div>
+                                <div className="boxDato">{e.persona.nombre}</div>
+                                <div className="boxDato">{e.persona.documento}</div>
                                 <div></div>
                             </div>
                         </div>

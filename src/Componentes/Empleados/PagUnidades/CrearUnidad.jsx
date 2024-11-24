@@ -37,7 +37,7 @@ export default function CrearUnidad() {
             <p className='subtitulos'>Agregar Unidad</p>
             <form onSubmit={agregarUnidad}>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>Piso</div>
+                    <div className='divFunciones'>Piso:</div>
                     <input
                         className="inputFunciones"
                         type="text"
@@ -47,7 +47,7 @@ export default function CrearUnidad() {
                     />
                 </div>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>Numero</div>
+                    <div className='divFunciones'>Numero:</div>
                     <input
                         className="inputFunciones"
                         type="text"
@@ -57,7 +57,7 @@ export default function CrearUnidad() {
                     />
                 </div>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>Id Edificio</div>
+                    <div className='divFunciones'>Id Edificio:</div>
                     <input
                         className="inputFunciones"
                         type="text"

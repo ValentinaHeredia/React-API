@@ -21,8 +21,8 @@ export default function MostrarPersonas(){
                     personasList.map( (p) => (
                         <div>
                             <div className="boxDatos">
-                                <div className="boxDato">Nombre: {p.nombre}</div>
-                                <div className="boxDato">Documento: {p.documento}</div>
+                                <div className="boxDato">{p.nombre}</div>
+                                <div className="boxDato">{p.documento}</div>
                                 <div></div>
                             </div>
                         </div>

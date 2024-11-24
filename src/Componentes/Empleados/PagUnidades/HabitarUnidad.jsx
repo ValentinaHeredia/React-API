@@ -35,7 +35,7 @@ export default function HabitarUnidad() {
             <p className="subtitulos">Habitar Unidad</p>
             <form onSubmit={handleSubmit}>
                 <div className="divInputFunciones">
-                    <div className="divFunciones">ID Unidad</div>
+                    <div className="divFunciones">ID Unidad:</div>
                     <input className="inputFunciones"
                         type="text"
                         id="idUnidad"

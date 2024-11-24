@@ -51,8 +51,8 @@ export default function BuscarUsuario() {
             {error && <p>{error}</p>}
             {usuario && (
                 <div className="boxDatos">
-                    <div className="boxDato">Documento: {usuario.documento}</div>
-                    <div className="boxDato">Contraseña: {usuario.contrasenia}</div>
+                    <div className="boxDato">{usuario.documento}</div>
+                    <div className="boxDato">{usuario.contrasenia}</div>
                     {/* Puedes agregar más detalles del usuario aquí */}
                 </div>
             )}

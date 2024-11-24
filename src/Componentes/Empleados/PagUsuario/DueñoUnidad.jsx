@@ -2,33 +2,46 @@ import React, { useState } from "react";
 
 export default function BuscarDuenioUnidad() {
     const [idUnidad, setIdUnidad] = useState("");
-    const [duenios, setDuenios] = useState([]); // Cambiado a array para manejar múltiples dueños
+    const [duenios, setDuenios] = useState([]);
     const [error, setError] = useState("");
+    const [debounceTimeout, setDebounceTimeout] = useState(null);
 
-    const handleSearch = async () => {
-        if (!idUnidad.trim()) {
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setIdUnidad(value);
+
+        if (debounceTimeout) clearTimeout(debounceTimeout);
+
+        setDebounceTimeout(
+            setTimeout(() => {
+                buscarDuenios(value.trim());
+            }, 500)
+        );
+    };
+
+    const buscarDuenios = async (idUnidad) => {
+        if (!idUnidad) {
             setError("Por favor, ingrese un ID de unidad válido.");
-            setDuenios([]); // Limpiar la lista de dueños previos
+            setDuenios([]);
             return;
         }
 
         try {
-            setError(""); // Limpiar errores previos
+            setError("");
             const response = await fetch(
                 `http://localhost:8081/api/unidades/dueniosPorUnidad/${idUnidad}`
             );
 
             const data = await response.json();
-            console.log("Datos recibidos:", data); // Depuración
 
             if (!response.ok || !data.length) {
                 throw new Error("No se encontraron dueños para esta unidad.");
             }
 
-            setDuenios(data); // Guardar el array de dueños
+            setDuenios(data);
         } catch (err) {
-            setError(err.message); // Mostrar el mensaje de error
-            setDuenios([]); // Limpiar datos previos
+            setError(err.message);
+            setDuenios([]);
         }
     };
 
@@ -40,23 +53,22 @@ export default function BuscarDuenioUnidad() {
                 <input
                     className="inputFunciones"
                     type="search"
-                    placeholder="ID unidad"
+                    placeholder=""
                     value={idUnidad}
-                    onChange={(e) => setIdUnidad(e.target.value)}
+                    onChange={handleInputChange}
                 />
             </div>
-            <button className="botones" onClick={handleSearch}>
-                Buscar
-            </button>
 
             {error && <p>{error}</p>}
 
             {duenios.length > 0 ? (
                 <ul>
                     {duenios.map((duenio, index) => (
-                        <li key={index}>
-                            Nombre: {duenio.nombre} - Documento: {duenio.documento}
-                        </li>
+                        <div key={index}>
+                            <div>Nombre: {duenio.nombre}</div>
+                            <div>Documento: {duenio.documento}</div>
+                            <hr />
+                        </div>
                     ))}
                 </ul>
             ) : (

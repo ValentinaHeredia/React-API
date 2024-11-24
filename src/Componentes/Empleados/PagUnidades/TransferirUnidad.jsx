@@ -37,7 +37,7 @@ export default function TransferirUnidad() {
             <p className='subtitulos'>Transferir Unidad</p>
             <form onSubmit={transferirUnidad}>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>Unidad ID</div>
+                    <div className='divFunciones'>ID Unidad:</div>
                     <input className='inputFunciones'
                         type="text"
                         id="idUnidad"
@@ -48,11 +48,11 @@ export default function TransferirUnidad() {
                     />
                 </div>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>Nuevo Dueño</div>
+                    <div className='divFunciones'>Nuevo Dueño:</div>
                     <input className='inputFunciones'
                         type="text"
                         id="documento"
-                        placeholder="Ingresa el documento..."
+                        placeholder=""
                         value={documento}
                         onChange={(e) => setDocumento(e.target.value)}
                         required

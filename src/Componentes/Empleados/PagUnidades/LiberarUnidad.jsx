@@ -33,7 +33,7 @@ export default function LiberarUnidad() {
             <p className='subtitulos'>Liberar Unidad</p>
             <form onSubmit={liberarUnidad}>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>ID unidad</div>
+                    <div className='divFunciones'>ID unidad:</div>
                     <input className='inputFunciones'
                         type="text"
                         value={id}

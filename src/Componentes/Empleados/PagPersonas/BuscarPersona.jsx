@@ -40,10 +40,10 @@ export default function BuscarPersona() {
 
     return (
         <div>
-            <label className="buscarLabel">Buscar</label>
+            <label className="buscarLabel">Buscar:</label>
             <input className='inputFunciones'
                 type="search"
-                placeholder="Ingrese el documento"
+                placeholder="Ingrese el Documento"
                 value={searchTerm}
                 onChange={handleChange}
             />

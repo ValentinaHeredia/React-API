@@ -21,18 +21,14 @@ export default function Usuario(){
         <div>
             <div className="container">
                 <div className="busquedaGridPersonas">
-                    <BuscarUsuario />
+                    <UsuarioBusqueda />
                 </div>
                 <div className="funcionesGridPersonas">
                     <div className="funciones">
                         <h1>Usuarios</h1>
-                        <BuscarDueniosEdificio/>
                         <BuscarDuenioPorUnidad/>
                         <BuscarHabitantesUnidad/>
                         <BuscarInquilinosPorUnidad/>
-                        <br />
-                        <BuscarUsuarioPorEdificio/>
-                        <br />
                         <CrearUsuario/>
                         <BorrarUsuario/>
                         <ModificarContrasenia/>

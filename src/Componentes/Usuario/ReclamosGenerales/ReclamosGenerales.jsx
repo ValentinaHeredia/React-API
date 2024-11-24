@@ -6,8 +6,7 @@ export default function ReclamosGenerales(){
         <div>
             <div className="container">
                 <div className="funcionesGridPersonas">
-                    <div className="funciones">
-
+                    <div>
                     </div>
                 </div>
                 <div className="resultadosGridPersonas">

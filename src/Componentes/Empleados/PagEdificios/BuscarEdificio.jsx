@@ -59,13 +59,13 @@ function BuscarEdificio() {
 
   return (
     <div>
-      <label className="buscarLabel">Buscar</label>
+      <label className="buscarLabel">Buscar:</label>
       <input className="inputFunciones"
         type="search"
         value={code}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        placeholder="Id edificio..."
+        placeholder="Código del Edificio"
       />
 
       {error && <p>{error}</p>}

@@ -52,16 +52,18 @@ function BuscarInquilinosPorUnidad() {
                     type="search"
                     value={idUnidad}
                     onChange={handleChange}
-                    placeholder="Ingresa el ID de la unidad"
+                    placeholder=""
                 />
             </div>
         {error && <p>{error}</p>}
         {inquilinos.length > 0 && (
             <ul>
             {inquilinos.map((inquilino) => (
-                <li key={inquilino.id}>
-                {inquilino.nombre} (Documento: {inquilino.documento})
-                </li>
+                <div key={inquilino.id}>
+                    <div>{inquilino.nombre}</div>
+                    <div>{inquilino.documento}</div>
+                    <hr/>
+                </div>
             ))}
             </ul>
         )}

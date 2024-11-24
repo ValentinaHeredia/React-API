@@ -1,135 +1,148 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-export default function BuscadorGeneral() {
-    const [tipoBusqueda, setTipoBusqueda] = useState(""); // Tipo de búsqueda seleccionada
-    const [inputValor, setInputValor] = useState(""); // Valor ingresado
-    const [resultado, setResultado] = useState([]); // Resultado de la búsqueda
-    const [mensaje, setMensaje] = useState(""); // Mensaje de error o estado
+export default function BuscadorUnificado() {
+    const [opcion, setOpcion] = useState(""); // Inicialmente vacío para que el usuario deba seleccionar
+    const [input, setInput] = useState("");
+    const [resultado, setResultado] = useState(null);
+    const [mensaje, setMensaje] = useState("");
+    const [debounceTimeout, setDebounceTimeout] = useState(null);
 
-    useEffect(() => {
-        if (!inputValor.trim()) {
-            setMensaje("Ingrese un dato para buscar.");
-            setResultado([]);
+    const handleOpcionChange = (e) => {
+        setOpcion(e.target.value);
+        setInput("");
+        setResultado(null);
+        setMensaje("");
+    };
+
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setInput(value);
+
+        if (debounceTimeout) clearTimeout(debounceTimeout);
+
+        if (opcion) {
+            setDebounceTimeout(
+                setTimeout(() => {
+                    realizarBusqueda(value.trim());
+                }, 500)
+            );
+        }
+    };
+
+    const realizarBusqueda = async (valor) => {
+        if (!valor) {
+            setResultado(null);
+            setMensaje("Por favor, ingresa un valor.");
             return;
         }
 
-        if (!tipoBusqueda) {
-            setMensaje("Seleccione un tipo de búsqueda.");
-            setResultado([]);
-            return;
+        let url = "";
+        switch (opcion) {
+            case "buscarUsuario":
+                url = `http://localhost:8081/api/usuarios/obtenerUsuarioPorDocumento/${valor}`;
+                break;
+            case "buscarUsuarioPorEdificio":
+                url = `http://localhost:8081/api/edificios/obtenerHabitantesPorEdificio/${valor}`;
+                break;
+            case "buscarDueniosEdificio":
+                url = `http://localhost:8081/api/duenios/dueniosPorEdificio/${valor}`;
+                break;
+            default:
+                setMensaje("Por favor, selecciona una funcionalidad.");
+                return;
         }
 
-        const realizarBusqueda = async () => {
-            let url = "";
-            let valorParaBuscar = inputValor.trim();
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
 
-            // Determina si el valor debe ser numérico o una cadena
-            const necesitaNumero = [
-                "edificio", // Código de edificio (int)
-                "unidadHabitantes", // ID unidad (int)
-                "unidadDuenios", // ID unidad (int)
-                "unidadInquilinos", // ID unidad (int)
-            ];
-
-            if (necesitaNumero.includes(tipoBusqueda)) {
-                const valorNumerico = parseInt(valorParaBuscar, 10);
-                if (isNaN(valorNumerico)) {
-                    setMensaje("El dato ingresado debe ser un número.");
-                    setResultado([]);
-                    return;
-                }
-                valorParaBuscar = valorNumerico; // Usa el número para la búsqueda
+            if (response.ok) {
+                setResultado(data);
+                setMensaje("");
+            } else {
+                setResultado(null);
+                setMensaje("No se encontraron resultados.");
             }
+        } catch (error) {
+            setResultado(null);
+            setMensaje("Error de conexión.");
+            console.error(error);
+        }
+    };
 
-            // URLs según tipo de búsqueda
-            switch (tipoBusqueda) {
-                case "usuario":
-                    url = `http://localhost:8081/api/usuarios/obtenerUsuarioPorDocumento/${valorParaBuscar}`; // String
-                    break;
-                case "edificio":
-                    url = `http://localhost:8081/api/edificios/obtenerHabitantesPorEdificio/${valorParaBuscar}`; // Int
-                    break;
-                case "unidadHabitantes":
-                    url = `http://localhost:8081/api/unidades/habitantesPorUnidad/${valorParaBuscar}`; // Int
-                    break;
-                case "unidadDuenios":
-                    url = `http://localhost:8081/api/unidades/dueniosPorUnidad/${valorParaBuscar}`; // Int
-                    break;
-                case "edificioDuenios":
-                    url = `http://localhost:8081/api/duenios/dueniosPorEdificio/${valorParaBuscar}`; // String
-                    break;
-                case "unidadInquilinos":
-                    url = `http://localhost:8081/api/unidades/inquilinosPorUnidad/${valorParaBuscar}`; // Int
-                    break;
-                default:
-                    setMensaje("Seleccione un tipo de búsqueda válido.");
-                    return;
-            }
-
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-
-                if (response.ok && data.length > 0) {
-                    setResultado(data);
-                    setMensaje("");
-                } else {
-                    setMensaje("No se encontraron resultados.");
-                    setResultado([]);
-                }
-            } catch (error) {
-                setMensaje("Error en la búsqueda. Por favor, intente nuevamente.");
-                setResultado([]);
-            }
-        };
-
-        // Ejecuta la búsqueda cuando el inputValor cambia
-        realizarBusqueda();
-    }, [inputValor, tipoBusqueda]); // Dependencias: ejecuta el efecto cuando cambian
+    const getPlaceholder = () => {
+        switch (opcion) {
+            case "buscarUsuario":
+                return "Ingrese el Documento";
+            case "buscarUsuarioPorEdificio":
+                return "Código del Edificio";
+            case "buscarDueniosEdificio":
+                return "Código del Edificio";
+            default:
+                return "Selecciona una funcionalidad para comenzar";
+        }
+    };
 
     return (
         <div>
-            {/* Selección del tipo de búsqueda */}
-            <label htmlFor="tipoBusqueda">Tipo de Búsqueda:</label>
-            <select
-                id="tipoBusqueda"
-                value={tipoBusqueda}
-                onChange={(e) => setTipoBusqueda(e.target.value)}
-            >
-                <option value="">Seleccione una opción</option>
-                <option value="usuario">Buscar Usuario</option>
-                <option value="edificio">Buscar Habitantes por Edificio</option>
-                <option value="unidadHabitantes">Buscar Habitantes por Unidad</option>
-                <option value="unidadDuenios">Buscar Dueños por Unidad</option>
-                <option value="edificioDuenios">Buscar Dueños por Edificio</option>
-                <option value="unidadInquilinos">Buscar Inquilinos por Unidad</option>
-            </select>
+            <div className="busquedas">
+                <label htmlFor="opcion" className="buscarLabel">Buscar por:</label>
+                <select className="selectReclamo" id="opcion" value={opcion} onChange={handleOpcionChange}>
+                    <option value="">Seleccionar...</option>
+                    <option value="buscarUsuario">Buscar Usuario por Documento</option>
+                    <option value="buscarUsuarioPorEdificio">Buscar Usuarios por Edificio</option>
+                    <option value="buscarDueniosEdificio">Buscar Dueños por Edificio</option>
+                </select>
+            </div>
 
-            {/* Campo de entrada para el valor de búsqueda */}
             <div>
-                <label htmlFor="inputValor">Ingrese el dato:</label>
                 <input
-                    id="inputValor"
+                    className="inputBusquedaReclamos"
                     type="text"
-                    value={inputValor}
-                    onChange={(e) => setInputValor(e.target.value)}
-                    placeholder="Ej: DNI31427890 o ID de unidad"
+                    id="input"
+                    value={input}
+                    onChange={handleInputChange}
+                    placeholder={getPlaceholder()}
+                    disabled={!opcion} // Desactivar el input si no se selecciona una opción
                 />
             </div>
 
-            {/* Resultados de la búsqueda */}
-            <div>
-                {mensaje && <p>{mensaje}</p>}
-                {resultado.length > 0 && (
+            {mensaje && <p>{mensaje}</p>}
+
+            {resultado && opcion === "buscarUsuario" && (
+                <div className="boxDatos">
+                    <div className="boxDato">{resultado.documento}</div>
+                    <div className="boxDato">{resultado.contrasenia}</div>
+                </div>
+            )}
+
+            {resultado && opcion === "buscarUsuarioPorEdificio" && (
+                <div>
                     <ul>
-                        {resultado.map((item, index) => (
-                            <li key={index}>
-                                {JSON.stringify(item, null, 2)} {/* Renderiza los datos */}
-                            </li>
+                        {resultado.map((habitante) => (
+                            <div key={habitante.id}>
+                                <div className="boxDatos">
+                                    <div className="boxDato">{habitante.documento}</div>
+                                    <div className="boxDato">{habitante.nombre}</div>
+                                </div>
+                            </div>
                         ))}
                     </ul>
-                )}
-            </div>
+                </div>
+            )}
+
+            {resultado && opcion === "buscarDueniosEdificio" && (
+                <div>
+                    <ul>
+                        {resultado.map((duenio) => (
+                            <div className="boxDatos" key={duenio.documento}>
+                                <div className="boxDato">{duenio.nombre}</div>
+                                <div className="boxDato">{duenio.documento}</div>
+                            </div>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </div>
     );
 }

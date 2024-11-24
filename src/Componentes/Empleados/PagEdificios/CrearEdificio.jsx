@@ -35,7 +35,7 @@ export default function CrearEdificio() {
             <p className='subtitulos'>Agregar edificio</p>
             <form onSubmit={agregarEdificio}>
             <div className='divInputFunciones'>
-                <div className='divFunciones'>Nombre</div>
+                <div className='divFunciones'>Nombre:</div>
                 <input className='inputFunciones'
                     type="text"
                     value={nombre}
@@ -44,7 +44,7 @@ export default function CrearEdificio() {
                 />
             </div>
             <div className='divInputFunciones'>
-                <div className='divFunciones'>Direccion</div>
+                <div className='divFunciones'>Direccion:</div>
                 <input className='inputFunciones'
                     type="text"
                     value={direccion}

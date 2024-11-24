@@ -106,7 +106,7 @@ export default function TodasBusquedas() {
                     <div>
                         <input className="inputBusquedaReclamos"
                             type="text"
-                            placeholder="Ingrese el documento"
+                            placeholder="Ingrese el Documento"
                             onChange={(e) => handleChangeParametros("documento", e.target.value)}
                         />
                     </div>

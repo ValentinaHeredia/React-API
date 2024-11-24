@@ -86,7 +86,7 @@ export default function ObtenerReclamosPorTipoCheckbox() {
                                     <p>Estado: {reclamo.estado}</p>
                                     <p>Medidas Tomadas: {reclamo.medidasTomadas || 'Ninguna'}</p>
                                 </div>
-                                <hr />
+                                <hr/>
                             </div>
                         ))}
                     </ul>
