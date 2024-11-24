@@ -30,7 +30,7 @@ export default function BorrarReclamo() {
             <p className='subtitulos'>Eliminar Reclamo</p>
             <form onSubmit={eliminarReclamo}>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>ID del Reclamo:</div>
+                    <div className='divFunciones'>ID Reclamo:</div>
                     <input className='inputFunciones'
                         type="text"
                         value={idReclamo}

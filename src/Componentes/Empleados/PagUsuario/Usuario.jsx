@@ -18,7 +18,7 @@ export default function Usuario(){
     return(
         <div>
             <div className="container">
-                <div className="buscarGrid">
+                <div className="busquedaGridPersonas">
                     <BuscarUsuario />
                 </div>
                 <div className="funcionesGridPersonas">

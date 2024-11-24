@@ -1,45 +1,85 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
-export default function MostrarReclamos(){
-    const[reclamosList, setReclamosList] = useState([]);
+export default function MostrarReclamos() {
+    const [reclamosList, setReclamosList] = useState([]);
+    const [detallesVisibles, setDetallesVisibles] = useState({}); // Controla la visibilidad de los detalles
 
     async function getReclamos() {
-        let respuesta = await fetch("http://localhost:8081/api/reclamos/todosLosReclamos");
-        let reclamos = await respuesta.json();
-        console.log(reclamos);
-        setReclamosList(reclamos)
+        try {
+            const respuesta = await fetch("http://localhost:8081/api/reclamos/todosLosReclamos");
+            const reclamos = await respuesta.json();
+            setReclamosList(reclamos);
+        } catch (error) {
+            console.error("Error al obtener los reclamos:", error);
+        }
     }
 
-    useEffect(
-        () => {getReclamos()}, []
-    )
+    useEffect(() => {
+        getReclamos();
+    }, []);
 
-    return(
+    const toggleDetalle = (id) => {
+        setDetallesVisibles((prev) => ({
+            ...prev,
+            [id]: !prev[id], // Alterna la visibilidad del detalle correspondiente
+        }));
+    };
+
+    return (
         <div>
-            <div>
-                {
-                    reclamosList.map( (r) => (
-                        <div className="color">
-                                <div className="boxDatos">
-                                    <div className="boxDato">{r.idReclamo}</div>
-                                    <div className="boxDato">{r.estado}</div>
-                                    <div className="boxDato">{r.fecha}</div>
+            {reclamosList.map((r) => (
+                <div key={r.idReclamo} className="reclamoBox">
+                    <div className="boxDatosUnidad">
+                        <div className="boxDatoUnidad">Reclamo {r.idReclamo}</div>
+                        <div className="boxDatoUnidad">Estado: {r.estado}</div>
+                        <button onClick={() => toggleDetalle(r.idReclamo)} className="botonDetalle">
+                            {detallesVisibles[r.idReclamo] ? "Ocultar Detalle" : "Mostrar Detalle"}
+                        </button>
+                    </div>
+                    {detallesVisibles[r.idReclamo] && (
+                        <div className="boxDatosExtrasReclamo">
+                            <div className="datoPrimerasFila">
+                                <div className="divMuestraDatos">
+                                        <h4>Edificio:</h4>
+                                        <div>{r.codigo}</div>
+                                    </div>
+                                    <div className="divMuestraDatos">
+                                        <h4>Documento: </h4>
+                                        <div>{r.documento}</div>
                                 </div>
-                                <div className="boxDatos">
-                                    <div className="boxDato">Edificio: {r.codigo}</div>
-                                    <div className="boxDato">Unidad / Area comun: {r.identificador}</div>
-                                    <div className="boxDato">Persona: {r.documento}</div>
-                                    <div className="boxDato">tipo: {r.tipoReclamo}</div>
+                            </div>
+                            <div className="datoPrimerasFila">
+                                <div className="divMuestraDatos">
+                                        <h4>Tipo de reclamo:</h4>
+                                        <div>{r.tipoReclamo}</div>
+                                    </div>
+                                    <div className="divMuestraDatos">
+                                        <h4>Fecha: </h4>
+                                        <div>{r.fecha}</div>
+                                    </div>
+                                    <div className="divMuestraDatos">
+                                        <h4>Unidad / Área común: </h4>
+                                        <div>{r.identificador}</div>
+                                    </div>
+                            </div>
+                            <div className="datoPrimerasFila">
+                                <div className="divMuestraDatos">
+                                    <h4>Ubicacion:</h4>
+                                    <div>{r.ubicacion}</div>
                                 </div>
-                                <div className="boxDatos">
-                                    <div className="boxDato">Lugar: {r.ubicacion}</div>
-                                    <div className="boxDato">Descripcion: {r.descripcion}</div>
+                                <div className="divMuestraDatos">
+                                    <h4>Descripción: </h4>
+                                    <div>{r.descripcion}</div>
                                 </div>
+                                <div className="divMuestraDatos">
+                                    <h4>Medidas Tomadas: </h4>
+                                    <div>{r.medidasTomadas || "Ninguna"}</div>
+                                </div>
+                            </div>
                         </div>
-                    ))
-                }
-            </div>
+                    )}
+                </div>
+            ))}
         </div>
-    )
-
+    );
 }

@@ -57,9 +57,9 @@ export default function CambiarEstado() {
                         <option value="terminado">Terminado</option>
                     </select>
                 </div>
-                <div className='divInputFunciones'>
-                    <div className='divFunciones'>Medidas Tomadas:</div>
-                    <textarea className='inputFunciones'
+                <div className=''>
+                    <div className='divDescripcion'>Medidas Tomadas:</div>
+                    <textarea className='inputDescripcion'
                         value={medidasTomadas}
                         onChange={(e) => setMedidasTomadas(e.target.value)}
                         placeholder="Describe las medidas tomadas..."

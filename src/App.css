@@ -191,6 +191,7 @@
 
 }
 
+
 .detalleExtra{
     display: flex;
     flex-direction: column;
@@ -233,7 +234,12 @@
 
 .resultadosGridPersonas{
     grid-column: 5/13;
-    grid-row: 1/5;
+    grid-row: 2/5;
+}
+
+.busquedaGridPersonas{
+    grid-column: 5/13;
+    grid-row: 1;
 }
 
 /*MIS RECLAMOS*/
@@ -318,4 +324,60 @@
 .CR{
     grid-column: 4/7;
     grid-row: 1;
+}
+
+
+/*RECLAMOS*/
+
+.boxDatosExtrasReclamo{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+    background-color: #EBEBEB;
+    width: 1000px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.datoPrimerasFila{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 50px;
+    border-bottom: 1px solid black;
+    padding: 10px;
+}
+
+.divMuestraDatos{
+    display: flex;
+    flex-direction: row;
+}
+
+.busquedas{
+    display: flex;
+    width: 1000px;
+}
+
+.selectReclamo{
+    border: none;
+    border-radius: 10px;
+    width: 130px;
+    height: 30px;
+    background-color: #F3F3F3;
+}
+
+.inputBusquedaReclamos{
+    background-color: #D9D9D9;
+    border:none;
+    border-radius: 5px;
+    width: 400px;
+    margin: 5px;
+    padding-left: 10px;
+    height: 25px;
+}
+
+
+.DivEstados{
+    display: flex;
+    flex-direction: column;
 }

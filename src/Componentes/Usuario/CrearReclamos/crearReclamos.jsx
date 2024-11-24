@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAuth } from "../../AuthContext"; // Importar el contexto
 
 export default function CrearReclamo() {
-    const [tipoReclamoSeleccionado, setTipoReclamoSeleccionado] = useState(""); // "unidad" o "areaComun"
+    const { userDocument } = useAuth(); // Obtiene el documento del usuario autenticado
+    const [tipoReclamoSeleccionado, setTipoReclamoSeleccionado] = useState("");
     const [documentoUsuario, setDocumentoUsuario] = useState("");
     const [codigoEdificio, setCodigoEdificio] = useState("");
     const [idUnidad, setIdUnidad] = useState("");
@@ -10,10 +12,16 @@ export default function CrearReclamo() {
     const [tipoReclamo, setTipoReclamo] = useState("");
     const [mensaje, setMensaje] = useState(null);
 
+    // Prellenar el documento del usuario al cargar el componente
+    useEffect(() => {
+        if (userDocument) {
+            setDocumentoUsuario(userDocument); // Asigna automáticamente el documento
+        }
+    }, [userDocument]);
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Configura valores específicos según el tipo de reclamo
         const isAreaComun = tipoReclamoSeleccionado === "areaComun";
         const url = `http://localhost:8081/api/reclamos/crearReclamo/${documentoUsuario}/${codigoEdificio}/${isAreaComun ? -1 : idUnidad}/${isAreaComun ? ubicacion : " "}/${descripcion}/${tipoReclamo}`;
 
@@ -38,7 +46,6 @@ export default function CrearReclamo() {
 
     const handleReset = () => {
         setTipoReclamoSeleccionado("");
-        setDocumentoUsuario("");
         setCodigoEdificio("");
         setIdUnidad("");
         setUbicacion("");
@@ -84,6 +91,7 @@ export default function CrearReclamo() {
                                     value={documentoUsuario}
                                     onChange={(e) => setDocumentoUsuario(e.target.value)}
                                     required
+                                    readOnly // El campo es solo lectura
                                 />
                             </div>
                             <div className="divInputFunciones">

@@ -10,29 +10,34 @@ import ObtenerReclamosPorTipo from "./ObtenerReclamosPorTipo";
 import ReclamoPorEdificio from "./ReclamoPorEdificio";
 import ReclamoPorUnidad from "./ReclamoPorUnidad";
 import ReclamosPorPersona from "./ReclamosPersona";
+import TodasBusquedas from "./TodasBusquedas";
 
 export default function Reclamos(){
     return(
         <div>
             <div className="container">
-                <div className="buscarGrid">
-                    <BuscarReclamos/>
+                <div className="busquedaGridPersonas">
+                    <TodasBusquedas/>
                 </div>
-                <div className="funcionesGrid">
+                <div className="funcionesGridPersonas">
                     <div className="funciones">
+                        {/* 
                         <ReclamoPorEdificio/>
                         <ReclamoPorUnidad/>
                         <ReclamosPorPersona/>
+                        <ObtenerReclamosPorRangoFechas/>
+                        <ObtenerReclamoACporEdificio/>
+                        */}
                         <LugarReclamo/>
                         <BorrarReclamo/>
                         <CambiarEstado/>
                         <ObtenerReclamoEstado/>
+                        <br />
                         <ObtenerReclamosPorTipo/>
-                        <ObtenerReclamosPorRangoFechas/>
-                        <ObtenerReclamoACporEdificio/>
+
                     </div>
                 </div>
-                <div className="resultadosGrid">
+                <div className="resultadosGridPersonas">
                     <MostrarReclamos/> 
                 </div>
             </div>

@@ -79,16 +79,15 @@ export default function ObtenerReclamosPorTipoCheckbox() {
                     <h4>Reclamos con tipo: {tipoReclamo}</h4>
                     <ul>
                         {reclamos.map((reclamo) => (
-                            <li key={reclamo.idReclamo}>
+                            <div key={reclamo.idReclamo}>
                                 <div>
                                     <p>ID Reclamo: {reclamo.idReclamo}</p>
                                     <p>Descripción: {reclamo.descripcion}</p>
                                     <p>Estado: {reclamo.estado}</p>
                                     <p>Medidas Tomadas: {reclamo.medidasTomadas || 'Ninguna'}</p>
-                                    <p>Creado por: {reclamo.documentoUsuario}</p>
                                 </div>
                                 <hr />
-                            </li>
+                            </div>
                         ))}
                     </ul>
                 </div>
