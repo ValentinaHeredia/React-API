@@ -3,6 +3,7 @@ import BorrarHabitante from "./BorrarHabitante";
 import BorrarInquilino from "./BorrarInquilino";
 import BorrarUsuario from "./BorrarUsuario";
 import BuscarUsuario from "./BuscarUsuario";
+import BuscarUsuarioPorEdificio from "./BuscarUsuarioPorEdificio";
 import CrearDuenio from "./CrearDuenio";
 import CrearHabitante from "./CrearHabitantes";
 import CrearInquilino from "./CrearInquilino";
@@ -13,6 +14,7 @@ import BuscarHabitantesUnidad from "./HabitantesUnidad";
 import BuscarInquilinosPorUnidad from "./InquilinosUnidad";
 import ModificarContrasenia from "./ModificarContrasenia";
 import MostrarUsuario from "./MostrarUsuario";
+import UsuarioBusqueda from "./UsuarioBusqueda";
 
 export default function Usuario(){
     return(
@@ -24,11 +26,13 @@ export default function Usuario(){
                 <div className="funcionesGridPersonas">
                     <div className="funciones">
                         <h1>Usuarios</h1>
-                        <BuscarHabitantesUnidad/>
+                        <BuscarDueniosEdificio/>
+                        <BuscarDuenioPorUnidad/>
                         <BuscarHabitantesUnidad/>
                         <BuscarInquilinosPorUnidad/>
-                        <BuscarDuenioPorUnidad/>
-                        <BuscarDueniosEdificio/>
+                        <br />
+                        <BuscarUsuarioPorEdificio/>
+                        <br />
                         <CrearUsuario/>
                         <BorrarUsuario/>
                         <ModificarContrasenia/>

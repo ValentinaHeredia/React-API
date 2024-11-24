@@ -35,7 +35,7 @@ export default function CrearInquilino() {
             <p className='subtitulos'>Agregar Inquilino</p>
             <form onSubmit={agregarInquilino}>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>ID:</div>
+                    <div className='divFunciones'>ID Unidad:</div>
                     <input className='inputFunciones'
                         type="text"
                         value={id}

@@ -34,17 +34,20 @@ export default function BuscarDuenioUnidad() {
 
     return (
         <div>
-            <p className='subtitulos'>Dueños por unidad</p>
-            <div className='divInputFunciones'>
-                <div className='divFunciones'>Codigo:</div>
-                <input className='inputFunciones'
+            <p className="subtitulos">Dueños por unidad</p>
+            <div className="divInputFunciones">
+                <div className="divFunciones">ID Unidad:</div>
+                <input
+                    className="inputFunciones"
                     type="search"
                     placeholder="ID unidad"
                     value={idUnidad}
                     onChange={(e) => setIdUnidad(e.target.value)}
                 />
             </div>
-            <button className="botones" onClick={handleSearch}>Buscar</button>
+            <button className="botones" onClick={handleSearch}>
+                Buscar
+            </button>
 
             {error && <p>{error}</p>}
 
@@ -57,7 +60,7 @@ export default function BuscarDuenioUnidad() {
                     ))}
                 </ul>
             ) : (
-                !error && <p>No se encontró información de dueños.</p>
+                idUnidad.trim() && !error && <p>No se encontró información de dueños.</p>
             )}
         </div>
     );

@@ -40,7 +40,7 @@ export default function BorrarInquilino() {
             <p className='subtitulos'>Eliminar inquilino</p>
             <form onSubmit={eliminarInquilino}>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>ID de Unidad:</div>
+                    <div className='divFunciones'>ID Unidad:</div>
                     <input className='inputFunciones'
                         type="text"
                         value={idUnidad}

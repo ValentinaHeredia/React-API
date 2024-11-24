@@ -13,7 +13,7 @@ export default function Empleado(){
                 </div>
                 <div className="funcionesGrid">
                     <div className="funciones">
-                        <h1>Edificios</h1>
+                        <h1>Empleados</h1>
                         <CrearEmpleado/>
                         <BorrarEmpleado/>
                         <ModificarContraseniaE/>

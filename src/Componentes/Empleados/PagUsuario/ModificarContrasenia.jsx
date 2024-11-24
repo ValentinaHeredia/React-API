@@ -44,7 +44,7 @@ export default function ModificarContrasenia() {
             />
             </div>
             <div className='divInputFunciones'>
-            <div className='divFunciones'>Nueva Contraseña:</div>
+            <div className='divFunciones'>Nueva Clave:</div>
             <input className='inputFunciones'
                 type="password"
                 value={contrasenia}

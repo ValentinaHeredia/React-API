@@ -4,10 +4,16 @@ export default function BuscarUsuarioPorEdificio() {
     const [codigoEdificio, setCodigoEdificio] = useState('');
     const [habitantes, setHabitantes] = useState([]);
     const [mensaje, setMensaje] = useState('');
+    const [hasTyped, setHasTyped] = useState(false); // Nuevo estado para saber si el usuario comenzó a escribir
 
     useEffect(() => {
+        // Mostrar mensaje solo si el usuario ha empezado a escribir y el campo está vacío
         if (codigoEdificio.trim() === '') {
-            setMensaje('Por favor, ingresa un código de edificio.');
+            if (hasTyped) {
+                setMensaje('Por favor, ingresa un código de edificio.');
+            } else {
+                setMensaje('');
+            }
             setHabitantes([]);
             return;
         }
@@ -38,10 +44,21 @@ export default function BuscarUsuarioPorEdificio() {
         };
 
         obtenerHabitantes();
-    }, [codigoEdificio]); // Ejecuta cada vez que cambia el código del edificio
+    }, [codigoEdificio, hasTyped]); // Ejecuta cuando cambia el código del edificio o el usuario empieza a escribir
+
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setCodigoEdificio(value);
+
+        // Marcar que el usuario ha empezado a escribir
+        if (!hasTyped) {
+            setHasTyped(true);
+        }
+    };
 
     return (
         <div>
+            <p className='subtitulos'>Usuarios por Edificios</p>
             <div>
                 <label htmlFor="codigoEdificio">Código de Edificio:</label>
                 <input className='inputFunciones'
@@ -49,10 +66,11 @@ export default function BuscarUsuarioPorEdificio() {
                     id="codigoEdificio"
                     placeholder="Ingresa el código del edificio"
                     value={codigoEdificio}
-                    onChange={(e) => setCodigoEdificio(e.target.value)}
+                    onChange={handleInputChange}
                 />
             </div>
 
+            {/* Mostrar mensaje solo si el usuario ha empezado a escribir */}
             {mensaje && <p>{mensaje}</p>}
 
             {habitantes.length > 0 && (
@@ -60,15 +78,15 @@ export default function BuscarUsuarioPorEdificio() {
                     <h4>Habitantes del edificio con código: {codigoEdificio}</h4>
                     <ul>
                         {habitantes.map((habitante) => (
-                            <li key={habitante.id}>
+                            <div key={habitante.id}>
                                 <div>
                                     <p>Nombre: {habitante.nombre}</p>
                                     <p>Apellido: {habitante.apellido}</p>
                                     <p>Documento: {habitante.documento}</p>
-                                    <p>Unidad: {habitante.unidad}</p>
+                                    <p>ID Unidad: {habitante.unidad}</p>
                                 </div>
                                 <hr />
-                            </li>
+                            </div>
                         ))}
                     </ul>
                 </div>

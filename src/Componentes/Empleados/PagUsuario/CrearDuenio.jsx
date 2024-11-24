@@ -35,7 +35,7 @@ export default function CrearDuenio() {
             <p className='subtitulos'>Agregar Dueño</p>
             <form onSubmit={agregarDuenio}>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>Código:</div>
+                    <div className='divFunciones'>ID Unidad:</div>
                     <input className='inputFunciones'
                         type="text"
                         value={codigo}

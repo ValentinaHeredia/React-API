@@ -47,7 +47,7 @@ function BuscarInquilinosPorUnidad() {
         <div>
             <p className='subtitulos'>Inquilinos por unidad</p>
             <div className='divInputFunciones'>
-                <div className='divFunciones'>Codigo:</div>
+                <div className='divFunciones'>ID Unidad:</div>
                 <input className='inputFunciones'
                     type="search"
                     value={idUnidad}

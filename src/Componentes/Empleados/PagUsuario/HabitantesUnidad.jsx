@@ -34,7 +34,7 @@ export default function BuscarHabitantesUnidad() {
         <div>
             <p className='subtitulos'>Habitantes por unidad</p>
             <div className='divInputFunciones'>
-                <div className='divFunciones'>Codigo:</div>
+                <div className='divFunciones'>ID Unidad:</div>
                 <input className='inputFunciones'
                     type="search"
                     placeholder="Ingrese el ID de la unidad (ej: 101)"

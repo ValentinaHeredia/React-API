@@ -12,7 +12,7 @@ export default function Personas(){
                 </div>
                 <div className="funcionesGrid">
                     <div className="funciones">
-                        <h1>Edificios</h1>
+                        <h1>Personas</h1>
                         <CrearPersona/>
                         <BorrarPersonas/>
                     </div>

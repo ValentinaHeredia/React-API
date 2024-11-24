@@ -35,7 +35,7 @@ export default function CrearHabitante() {
             <p className='subtitulos'>Agregar Habitante</p>
             <form onSubmit={agregarHabitante}>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>ID:</div>
+                    <div className='divFunciones'>ID Unidad:</div>
                     <input className='inputFunciones'
                         type="text"
                         value={id}

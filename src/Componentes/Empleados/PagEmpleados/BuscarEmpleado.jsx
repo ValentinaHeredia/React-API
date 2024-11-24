@@ -50,10 +50,9 @@ export default function BuscarEmpleado() {
         />
         {error && <p>{error}</p>}
         {empleado && (
-            <div className="box-conteiner color">
-            <div className="caja">Documento: {empleado.documento}</div>
-            <div className="caja">Nombre: {empleado.nombre}</div>
-            <div className="caja">Puesto: {empleado.puesto}</div>
+            <div className="boxDatos">
+            <div className="boxDato">Documento: {empleado.documento}</div>
+            <div className="boxDato">Contraseña: {empleado.contrasenia}</div>
             </div>
         )}
         </div>

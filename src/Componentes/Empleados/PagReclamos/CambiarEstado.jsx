@@ -34,7 +34,7 @@ export default function CambiarEstado() {
             <p className='subtitulos'>Cambiar Estado del Reclamo</p>
             <form onSubmit={cambiarEstado}>
                 <div className='divInputFunciones'>
-                    <div className='divFunciones'>ID del Reclamo:</div>
+                    <div className='divFunciones'>ID Reclamo:</div>
                     <input className='inputFunciones'
                         type="text"
                         value={idReclamo}
