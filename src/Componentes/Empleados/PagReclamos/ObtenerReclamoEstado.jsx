@@ -5,14 +5,13 @@ export default function ObtenerReclamoEstado() {
     const [reclamos, setReclamos] = useState([]);
     const [mensaje, setMensaje] = useState('');
 
-
     const handleCheckboxChange = (e) => {
         const value = e.target.value;
-        
+
         if (estado === value) {
-            setEstado(''); 
+            setEstado('');
         } else {
-            setEstado(value); 
+            setEstado(value);
         }
     };
 
@@ -45,12 +44,21 @@ export default function ObtenerReclamoEstado() {
 
         obtenerReclamos();
     }, [estado]);
-    
+
     return (
         <div>
-            <h3>Obtener Reclamos por Estado</h3>
+            <p className='subtitulos'>Obtener Reclamos por Estado</p>
 
             <div className='DivEstados'>
+                <label className='inputEstado'>
+                    <input
+                        type="checkbox"
+                        value="Nuevo"
+                        checked={estado === 'Nuevo'}
+                        onChange={handleCheckboxChange}
+                    />
+                    Nuevo
+                </label>
                 <label className='inputEstado'>
                     <input
                         type="checkbox"
@@ -106,13 +114,9 @@ export default function ObtenerReclamoEstado() {
                     <ul>
                         {reclamos.map((reclamo) => (
                             <div key={reclamo.idReclamo}>
-                                <div>
-                                    <p>ID Reclamo: {reclamo.idReclamo}</p>
-                                    <p>Descripción: {reclamo.descripcion}</p>
-                                    <p>Estado: {reclamo.estado}</p>
-                                    <p>Medidas Tomadas: {reclamo.medidasTomadas || 'Ninguna'}</p>
+                                <div className='ResultadosEstados'>
+                                    <div>ID Reclamo: {reclamo.idReclamo}</div>
                                 </div>
-                                <hr />
                             </div>
                         ))}
                     </ul>

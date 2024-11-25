@@ -34,10 +34,10 @@ function MostrarMisReclamos() {
 
     return (
         <div>
-            <h2>Mis Reclamos</h2>
+            <h2 className='textcenter'>Mis Reclamos</h2>
             {reclamos.length > 0 ? (
                 reclamos.map((reclamo) => (
-                    <div key={reclamo.idReclamo}>
+                    <div key={reclamo.idReclamo}  className='centrarUnidad'>
                         <div className="divMostrarRaclamo">
                             <div className="boxDatoUnidad">Reclamo {reclamo.idReclamo}</div>
                             <button
@@ -60,7 +60,6 @@ function MostrarMisReclamos() {
                             <p><strong>Fecha:</strong> {reclamo.fecha}</p>
                         </div>
                         )}
-                        <hr />
                     </div>
                 ))
             ) : (

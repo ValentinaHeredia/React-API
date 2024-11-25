@@ -6,7 +6,6 @@ import HabitarUnidad from "./HabitarUnidad";
 import LiberarUnidad from "./LiberarUnidad";
 import MostrarUnidades from "./MostrarUnidades";
 import TransferirUnidad from "./TransferirUnidad";
-import BuscarUnidadesEdificio from "./UnidadEdificio";
 
 export default function Unidades(){
     return(

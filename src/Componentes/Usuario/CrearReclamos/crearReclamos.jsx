@@ -79,82 +79,85 @@ export default function CrearReclamo() {
                     </div>
     
                     {tipoReclamoSeleccionado && (
-                        <form onSubmit={handleSubmit}>
-                            <p className="subtitulos alinearSubtitulo">
-                                {tipoReclamoSeleccionado === "unidad" ? "Crear Reclamo de Unidad" : "Crear Reclamo de Área Común"}
-                            </p>
-                            <div className="divInputFunciones">
-                                <div className="divFunciones">Documento del Usuario:</div>
-                                <input
-                                    className="inputFunciones"
-                                    type="text"
-                                    value={documentoUsuario}
-                                    onChange={(e) => setDocumentoUsuario(e.target.value)}
-                                    required
-                                    readOnly // El campo es solo lectura
-                                />
+                        <form onSubmit={handleSubmit} className="formCrearReclamo">
+                            <div className="divSelectReclamo">
+                                <div className="subtitulos">
+                                    {tipoReclamoSeleccionado === "unidad" ? "Crear Reclamo de Unidad" : "Crear Reclamo de Área Común"}
+                                </div>
                             </div>
-                            <div className="divInputFunciones">
-                                <div className="divFunciones">Código del Edificio:</div>
-                                <input
-                                    className="inputFunciones"
-                                    type="text"
-                                    value={codigoEdificio}
-                                    onChange={(e) => setCodigoEdificio(e.target.value)}
-                                    required
-                                />
-                            </div>
-                            {tipoReclamoSeleccionado === "unidad" ? (
+                            <div className="crearReclamo">
                                 <div className="divInputFunciones">
-                                    <div className="divFunciones">ID de la Unidad:</div>
+                                    <div className="divFunciones tamaño">Documento del Usuario:</div>
                                     <input
                                         className="inputFunciones"
                                         type="text"
-                                        value={idUnidad}
-                                        onChange={(e) => setIdUnidad(e.target.value)}
+                                        value={documentoUsuario}
+                                        onChange={(e) => setDocumentoUsuario(e.target.value)}
                                         required
+                                        readOnly // El campo es solo lectura
                                     />
                                 </div>
-                            ) : (
                                 <div className="divInputFunciones">
-                                    <div className="divFunciones">Ubicación:</div>
+                                    <div className="divFunciones tamaño">Código del Edificio:</div>
                                     <input
                                         className="inputFunciones"
                                         type="text"
-                                        value={ubicacion}
-                                        onChange={(e) => setUbicacion(e.target.value)}
+                                        value={codigoEdificio}
+                                        onChange={(e) => setCodigoEdificio(e.target.value)}
                                         required
                                     />
                                 </div>
-                            )}
-                            <div className="divInputFunciones">
-                                <div className="divFunciones">Tipo de Reclamo:</div>
-                                <select
-                                    className="selectReclamo"
-                                    value={tipoReclamo}
-                                    onChange={(e) => setTipoReclamo(e.target.value)}
-                                    required
-                                >
-                                    <option value="">Seleccione un tipo</option>
-                                    <option value="plomeria">Plomería</option>
-                                    <option value="electricidad">Electricidad</option>
-                                    <option value="pintura">Pintura</option>
-                                    <option value="mantenimiento_de_ascensores">Mantenimiento de Ascensores</option>
-                                    <option value="limpieza">Limpieza</option>
-                                    <option value="seguridad">Seguridad</option>
-                                    <option value="mantenimiento_de_bombas">Mantenimiento de Bombas</option>
-                                </select>
+                                {tipoReclamoSeleccionado === "unidad" ? (
+                                    <div className="divInputFunciones">
+                                        <div className="divFunciones tamaño">ID de la Unidad:</div>
+                                        <input
+                                            className="inputFunciones"
+                                            type="text"
+                                            value={idUnidad}
+                                            onChange={(e) => setIdUnidad(e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="divInputFunciones">
+                                        <div className="divFunciones tamaño">Ubicación:</div>
+                                        <input
+                                            className="inputFunciones"
+                                            type="text"
+                                            value={ubicacion}
+                                            onChange={(e) => setUbicacion(e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                )}
+                                <div className="divInputFunciones">
+                                    <div className="divFunciones tamaño">Tipo de Reclamo:</div>
+                                    <select
+                                        className="selectReclamo"
+                                        value={tipoReclamo}
+                                        onChange={(e) => setTipoReclamo(e.target.value)}
+                                        required
+                                    >
+                                        <option value="">Seleccione un tipo</option>
+                                        <option value="plomeria">Plomería</option>
+                                        <option value="electricidad">Electricidad</option>
+                                        <option value="pintura">Pintura</option>
+                                        <option value="mantenimiento_de_ascensores">Mantenimiento de Ascensores</option>
+                                        <option value="limpieza">Limpieza</option>
+                                        <option value="seguridad">Seguridad</option>
+                                        <option value="mantenimiento_de_bombas">Mantenimiento de Bombas</option>
+                                    </select>
+                                </div>
+                                <div className="divTextDescripcion">
+                                    <div className="divDescripcion">Descripción:</div>
+                                    <textarea
+                                        className="inputDescripcionCR"
+                                        value={descripcion}
+                                        onChange={(e) => setDescripcion(e.target.value)}
+                                        required
+                                    ></textarea>
+                                </div>
                             </div>
-                            <div className="divTextDescripcion">
-                                <div className="divDescripcion">Descripción:</div>
-                                <textarea
-                                    className="inputDescripcionCR"
-                                    value={descripcion}
-                                    onChange={(e) => setDescripcion(e.target.value)}
-                                    required
-                                ></textarea>
-                            </div>
-    
                             <button className="botones" type="submit">
                                 Crear Reclamo
                             </button>

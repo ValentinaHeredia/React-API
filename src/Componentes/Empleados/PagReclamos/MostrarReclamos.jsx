@@ -28,7 +28,7 @@ export default function MostrarReclamos() {
     return (
         <div>
             {reclamosList.map((r) => (
-                <div key={r.idReclamo} className="reclamoBox">
+                <div key={r.idReclamo}  className="centrarUnidad">
                     <div className="boxDatosUnidad">
                         <div className="boxDatoUnidad">Reclamo {r.idReclamo}</div>
                         <div className="boxDatoUnidad">Estado: {r.estado}</div>
@@ -41,39 +41,39 @@ export default function MostrarReclamos() {
                             <div className="datoPrimerasFila">
                                 <div className="divMuestraDatos">
                                         <h4>Edificio:</h4>
-                                        <div>{r.codigo}</div>
+                                        <div className="tamaño">{r.codigo}</div>
                                     </div>
                                     <div className="divMuestraDatos">
                                         <h4>Documento: </h4>
-                                        <div>{r.documento}</div>
+                                        <div className="tamaño">{r.documento}</div>
                                 </div>
                             </div>
                             <div className="datoPrimerasFila">
                                 <div className="divMuestraDatos">
                                         <h4>Tipo de reclamo:</h4>
-                                        <div>{r.tipoReclamo}</div>
+                                        <div  className="tamaño">{r.tipoReclamo}</div>
                                     </div>
                                     <div className="divMuestraDatos">
                                         <h4>Fecha: </h4>
-                                        <div>{r.fecha}</div>
+                                        <div  className="tamaño">{r.fecha}</div>
                                     </div>
                                     <div className="divMuestraDatos">
                                         <h4>Unidad / Área común: </h4>
-                                        <div>{r.identificador}</div>
+                                        <div  className="tamaño">{r.identificador}</div>
                                     </div>
                             </div>
                             <div className="datoPrimerasFila">
                                 <div className="divMuestraDatos">
                                     <h4>Ubicacion:</h4>
-                                    <div>{r.ubicacion}</div>
+                                    <div  className="tamaño">{r.ubicacion}</div>
                                 </div>
                                 <div className="divMuestraDatos">
                                     <h4>Descripción: </h4>
-                                    <div>{r.descripcion}</div>
+                                    <div  className="tamaño">{r.descripcion}</div>
                                 </div>
                                 <div className="divMuestraDatos">
                                     <h4>Medidas Tomadas: </h4>
-                                    <div>{r.medidasTomadas || "Ninguna"}</div>
+                                    <div className="tamaño">{r.medidasTomadas || "Ninguna"}</div>
                                 </div>
                             </div>
                         </div>

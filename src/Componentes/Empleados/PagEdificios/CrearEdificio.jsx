@@ -52,7 +52,10 @@ export default function CrearEdificio() {
                     required
                 />
             </div>
-            <button className='botones' type="submit">Agregar</button>
+            <div>
+                <button className='botones' type="submit">Agregar</button>
+            </div>
+
             </form>
             {mensaje && <p>{mensaje}</p>}
         </div>

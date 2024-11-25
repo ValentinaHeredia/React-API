@@ -37,11 +37,13 @@ export default function DatosLugarReclamo() {
             }
 
             const data = await response.text();
-            const [edificio, ubicacion] = data.split("\n");
-            const parsedData = {
-                edificio: edificio.split(":")[1].trim(),
-                ubicacion: ubicacion.split(":")[1].trim(),
-            };
+            const lines = data.split("\n");
+            const parsedData = {};
+
+            lines.forEach((line) => {
+                const [key, value] = line.split(":").map((item) => item.trim());
+                parsedData[key.toLowerCase()] = value; // Convertir a minúsculas para manejar claves de forma uniforme
+            });
 
             setDatosLugar(parsedData);
         } catch (err) {
@@ -67,7 +69,9 @@ export default function DatosLugarReclamo() {
             {datosLugar && (
                 <div>
                     <div>Edificio: {datosLugar.edificio}</div>
-                    <div>Ubicación: {datosLugar.ubicacion}</div>
+                    {datosLugar.piso && <div>Piso: {datosLugar.piso}</div>}
+                    {datosLugar.unidad && <div>Unidad: {datosLugar.unidad}</div>}
+                    {datosLugar.ubicación && <div>Ubicación: {datosLugar.ubicación}</div>}
                     <hr />
                 </div>
             )}

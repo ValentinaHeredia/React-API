@@ -8,7 +8,7 @@
 .input{
     width: 600px;
     height: 50px;
-    margin: 15px 0px 15px 100px;
+    margin: 10px;
     border: none;
     border-radius: 5px;
     background-color: #F8F7F7;
@@ -16,32 +16,52 @@
     font-size: 1.3em;
 }
 
+.fondo{
+    background-image: url('../public/Imagenes/fondoLogin.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .body{
     height: 100vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
 }
 
-/*---------------------------------LOGIN-------------------------------------------*/
-.img{
-    height: 100%;
-    width: auto;
-    object-fit: cover;
+/*------------------------MENSAJES DE ERROR---------------------------------------------------------*/
+.ErrorLogin{
+    display: none;
 }
+
+
+/*---------------------------------LOGIN-------------------------------------------*/
 
 .loginFormulario{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.39);
+    height: 600px;
+    border-radius: 10px;
+    margin: 30px;
+    border: 2px white solid;
+}
+
+.posicionBoton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .botonEnviar{
     background-color: #CD2C2C;
     color: white;
     height: 50px;
-    margin: 15px 0px 15px 100px;
+    margin-top: 10px;
     width: 250px;
     font-size: 1.3em;
     border: none;
@@ -50,32 +70,46 @@
 }
 
 /*---------------------------------NAVBAR-------------------------------------------*/
-.navbarContenedor{
+
+.navbarContenedor {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.navbar{
+.navbar {
+    margin-top: 20px;
     background-color: #CD2C2C;
     list-style: none;
     border-radius: 5px;
-    width: 200px;
+    width: 170px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.links{
+.navbar:hover {
+    background-color: #af2b2b;
+    transform: translateY(-3px);
+}
+
+.navbar.active {
+    color: #ffffff;
+    background-color: #afafaf;
+}
+
+.links {
+    margin-top: 20px;
     text-decoration: none;
-    color: #F8F7F7;
-    width: 200px;
+    color: #ffffff;
+    width: 170px;
     height: 40px;
-    margin-top: 15px;
     text-align: center;
+    font-weight: bold;
 }
-
 
 /*-----------------------------Generales Mayoritariamente----------------------------------------*/
 .boxDatos{
@@ -104,15 +138,28 @@
 
 
 .botones{
-    background-color: #CD2C2C;
-    width: 150px;
-    height: 30px;
+    background-color: #34dd0a;
+    width: 120px;
+    height: 35px;
     border-radius: 5px;
     border: none;
-    color: #FFFF;
+    color: #ffffff;
     text-align: center;
     font-size: 1em;
-    margin:10px 30% 10px 30%;
+    font-weight: bold;
+    margin: 10px auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botones:hover {
+    background-color: #2bb509;
+    transform: translateY(-2px);
+}
+
+.botones:active {
+    background-color: #249c08;
+    transform: translateY(1px);
 }
 
 .inputFunciones{
@@ -136,10 +183,15 @@
     flex-direction: row;
 }
 
-.subtitulos{
+.subtitulos {
     font-size: 1.2em;
     font-weight: bold;
-    font-style: italic;
+    font-style: weight;
+    color: #4A90E2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.05em;
+    border-left: 4px solid #4A90E2;
+    padding-left: 0.5em;
 }
 
 /*--------------------------GRID----------------------------*/
@@ -344,6 +396,12 @@
 
 
 /*RECLAMOS*/
+.ResultadosEstados{
+    background-color: #dfdfdf;
+    margin: 10px;
+    width: 30%;
+    border-radius: 5px;
+}
 
 .boxDatosExtrasReclamo{
     display: flex;
@@ -405,3 +463,357 @@
     width: 1000px;
 }
 
+.botones{
+    background-color: #CD2C2C;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    color: #FFFF;
+    text-align: center;
+    font-size: 1em;
+    margin:10px 30% 10px 30%;
+}
+
+
+/*--------------------------------------------------------------RESPONSIVE-----------------------------------------------------------------------*/
+@media (max-width:650px){
+    /*LOGIN*/
+    .body {
+        width: 100%;
+    }
+
+
+    .loginFormulario {
+        display: flex;
+        width: 90%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .input {
+        width: 400px;
+        font-size: 1.1em;
+    }
+
+
+    .botonEnviar{
+        height: 40px;
+        width: 300px;
+        font-size: 1em;
+    }
+    
+    /*NAVBAR*/
+    .navbarContenedor{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .navbar{
+        margin-top: 10px;
+        border-radius: 5px;
+        width: 400px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .links{
+        text-decoration: none;
+        color: #F8F7F7;
+        width: 200px;
+        height: 40px;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    /*GENERALES*/
+    .boxDatos{
+        width: 95%;
+        height: 50px;
+        border-radius: 5px;
+    }
+    
+    .boxDato{
+        font-size: 0.9em;
+        width: 120px;
+        text-align: center;
+    }
+    
+    .funciones{
+        background-color: #F3F3F3;
+        width: 100%;
+        border-radius: 5px;
+        padding: 15px;
+    }
+    
+
+    .inputFunciones{
+        width: 70%;
+    }
+    
+    .divFunciones{
+        width: 30%;
+        text-align: end;
+        margin: 5px 5px 5px 0px;
+    }
+    
+    .divInputFunciones{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .subtitulos{
+        font-size: 1em;
+    }
+
+    .buscarLabel{
+        text-align: center;
+    }
+    
+    /*--------------------------GRID----------------------------*/
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .buscarGrid{
+        margin-top: 5px;
+        order: 2;
+    }
+
+    .funcionesGrid{
+        order: 1;
+    }
+
+    .resultadosGrid{
+        order: 3;
+        width: 100%;
+    }
+
+    h1{
+        font-size: 1.3em;
+    }
+
+
+    /*---------------------------------------------------------------*/
+    .buscarLabel{
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 0.9em;
+    }
+
+    .funcionesGridPersonas{
+        grid-column:2/5;
+        grid-row: 1;
+    }
+    
+    .resultadosGridPersonas{
+        grid-column: 1/9;
+        grid-row: 3;
+    }
+    
+    .busquedaGridPersonas{
+        grid-column: 2/5;
+        grid-row: 2;
+        margin-top: 10px;
+    }
+
+    .funciones{
+        width: 400px;
+        border-radius: 5px;
+        padding: 15px;
+    }
+    
+    /*Unidades*/
+
+    .datoPrimerasFila{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height: 50px;
+        border-bottom: 1px solid black;
+        padding: 10px;
+    }
+    
+    .divMuestraDatos{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .busquedas{
+        display: flex;
+        width: 900px;
+    }
+    
+    .selectReclamo{
+        border: none;
+        border-radius: 10px;
+        width: 130px;
+        height: 30px;
+        background-color: #F3F3F3;
+    }
+    
+    .inputBusquedaReclamos{
+        background-color: #D9D9D9;
+        border:none;
+        border-radius: 5px;
+        width: 400px;
+        margin: 5px;
+        padding-left: 10px;
+        height: 25px;
+    }
+
+    .boxDatosUnidad{
+        margin-top: 10px;
+        width: 100%;
+        height: 40px;
+        padding: 5px;
+    }
+    
+    .boxDatoUnidad{
+        font-size: 0.8em;
+        width: 80px;
+        text-align: center;
+        margin-top: 5px;
+    
+    }
+
+    .detalleExtra{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 5px;
+        background-color: #EBEBEB;
+    }
+    
+    .personas{
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-size: 0.9em;
+    }
+    
+    .botonDetalle{
+        font-size: 0.7em;
+    }
+    
+    h4{
+        font-size: 0.9em;
+    }
+
+    .select{
+        width: 90px;
+
+    }
+
+    
+    /*PERSONAS*/
+    .funcionesGridPersonas{
+        order: 1;
+    }
+
+    .resultadosGridPersonas{
+        order: 3;
+        width: 100%;
+    }
+
+    .busquedaGridPersonas{
+        order: 2;
+    }
+
+    .busquedas{
+        display: flex;
+        width: 90%;
+    }
+
+    .centrarPersonas{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .boxDatosUnidad{
+        width: 90%;
+        height: 40px;
+        border-radius: 5px;
+        padding: 5pxpx;
+    }
+    
+    .boxDatoUnidad{
+        font-size: 0.9em;
+        width: 15%;
+    }
+
+    .centrarUnidad{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boxDatosExtrasReclamo{
+        margin-top: 0px;
+        width: 90%;
+        padding: 5px;
+    }
+    
+    .datoPrimerasFila{
+        display: flex;
+        flex-direction: column;
+        height: 60px;
+    }
+
+    .tamaño{
+        font-size: 0.9em;
+    }
+
+    .ResultadosEstados{
+        width: 30%;
+        font-size: 0.9em;
+    }
+
+    
+    .detalleExtraMR{
+        width: 90%;
+        margin: 0px;
+        padding: 0px 5px 0px 5px;
+    }
+
+    .divMostrarRaclamo{
+        width: 90%;
+        padding: 5px;
+    }
+
+    .cajaFuncionesMR{
+        width: 350px;
+    }
+
+    .crearReclamo{
+        margin-top: 10px;
+        width: 95%;
+    }
+
+    .formCrearReclamo{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .inputDescripcionCR{
+        width: 70%;
+        margin: 0px;
+    }
+
+    .textcenter{
+        text-align: center;
+    }
+}

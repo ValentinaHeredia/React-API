@@ -16,10 +16,10 @@ export default function MostrarUsuario(){
 
     return(
         <div>
-            <div>
+            <div className="centrarPersonas">
                 {
                     usuarioList.map( (u) => (
-                        <div>
+                        <div >
                             <div className="boxDatos">
                                 <div className="boxDato">{u.persona.documento}</div>
                                 <div className="boxDato">{u.persona.nombre}</div>

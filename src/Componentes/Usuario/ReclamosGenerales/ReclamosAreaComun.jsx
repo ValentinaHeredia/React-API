@@ -34,11 +34,11 @@ function MostrarReclamosAreasComunes() {
 
     return (
         <div>
-            <h2>Reclamos de Áreas Comunes</h2>
+            <h2 className='textcenter'>Reclamos de Áreas Comunes</h2>
             {reclamos.length > 0 ? (
                 <ul>
                     {reclamos.map((reclamo) => (
-                        <div key={reclamo.idReclamo}>
+                        <div key={reclamo.idReclamo} className='centrarUnidad'>
                             <div className="divMostrarRaclamo">
                                 <div className="boxDatoUnidad">Reclamo {reclamo.idReclamo}</div>
                                 <button
@@ -61,7 +61,6 @@ function MostrarReclamosAreasComunes() {
                                 <p><strong>Fecha:</strong> {reclamo.fecha}</p>
                             </div>
                             )}
-                            <hr />
                         </div>
                     ))}
                 </ul>

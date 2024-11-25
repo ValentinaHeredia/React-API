@@ -38,7 +38,7 @@ function Login() {
     };
 
     return (
-        <div className='body'>
+        <div className='body fondo'>
             <div className='loginFormulario'>
                 <select className='input' value={tipoUsuario} onChange={(e) => setTipoUsuario(e.target.value)}>
                     <option value="">Entrar como...</option> {/* Opción por defecto vacía */}
@@ -63,11 +63,11 @@ function Login() {
                     onChange={(e) => setContrasenia(e.target.value)}
                     />
                 </div>
-                <button onClick={handleLogin} className='botonEnviar'>Login</button>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-            </div>
-            <div>   
-                <img className='img' src="/fotoLogin.png" alt="" />
+                <div className='posicionBoton'>
+                    <button onClick={handleLogin} className='botonEnviar'>Login</button>
+                    {error && <p >{error}</p>}
+                </div>
+
             </div>
         </div>
     );
